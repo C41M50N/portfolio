@@ -1,0 +1,32 @@
+---
+import { getCollection } from "astro:content";
+import BackLayout from "@/layouts/BackLayout.astro";
+import { GitHubProjectButton, LiveProjectButton } from "@/components/buttons";
+
+const allProjects = await getCollection("projects");
+---
+
+<BackLayout title="Charles Buffington's Projects">
+  <div class="md:w-[700px] flex flex-col gap-4">
+    {allProjects.map((project) => (
+      <div class="border border-[#222222] rounded-sm py-6 px-10 w-full">
+        <div>
+          <a href={`/blog/${project.slug}`}>
+            <h2 class="text-white/80 text-2xl decoration-white/40 underline underline-offset-4 hover:decoration-white/65 decoration-2">
+              {project.data.title}
+            </h2>
+          </a>
+          <div class="py-1" />
+          <p class="text-white/50">
+            {project.data.description}
+          </p>
+        </div>
+        <div class="py-2" />
+        <div class="flex flex-row gap-4">
+          {project.data.live && <LiveProjectButton href={project.data.live} />}
+          {project.data.github && <GitHubProjectButton href={project.data.github} />}
+        </div>
+      </div>
+    ))}
+  </div>
+</BackLayout>

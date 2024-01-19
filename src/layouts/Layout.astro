@@ -54,14 +54,14 @@ const navItems: NavItem[] = [
 		<meta property="og:site_name" content="Charles Buffington" />
 		<meta property="og:see_also" content="https://cbuff.dev" />
 		<meta itemprop="name" content={title} />
-		<meta itemprop="description" content="Charles Buffington's portfolio" />
+		<meta itemprop="description" content="Charles Buffington's portfolio." />
 		<meta name="viewport" content="width=device-width" />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<meta name="generator" content={Astro.generator} />
 		<title>{title}</title>
 	</head>
 	<body
-		class="dark min-h-screen antialiased flex flex-col items-center justify-center overscroll-y-none"
+		class="dark min-h-screen antialiased flex flex-col items-center justify-start overscroll-y-none"
 	>
 		<header
 			class="bg-[#111111] flex items-center justify-between px-7 md:px-0 md:justify-around h-14 w-full border-b border-[#333333] fixed z-50 top-0 bg-background-2 transition-colors"
@@ -121,14 +121,14 @@ const navItems: NavItem[] = [
 			</div>
 		</header>
 
-		<main class="flex flex-col items-center justify-center">
+		<main class="flex flex-col items-center justify-start mt-14 pt-1">
 			<slot />
 		</main>
 
-		<footer class="flex flex-row items-center justify-around py-14 w-full">
+		<footer class="mt-auto flex flex-row items-center justify-around py-14 w-full">
 			<div class="flex flex-col">
 				<span class="text-white/50 text-sm">Built with 
-					<a class="text-white/90 hover:text-white/100 hover:underline" href="https://astro.dev/">Astro</a>, 
+					<a class="text-white/90 hover:text-white/100 hover:underline" href="https://astro.build/">Astro</a>, 
 					<a class="text-white/90 hover:text-white/100 hover:underline" href="https://ui.shadcn.com/">shadcn</a>, and 
 					<a class="text-white/90 hover:text-white/100 hover:underline" href="https://vercel.com/">Vercel</a>.
 				</span>
@@ -136,9 +136,9 @@ const navItems: NavItem[] = [
 			</div>
 
 			<div class="flex flex-row gap-3">
-				<LinkedInButton />
-				<GitHubButton />
-				<MailButton />
+				<LinkedInButton className="h-[34px] w-[34px]" />
+				<GitHubButton className="h-[34px] w-[34px]" />
+				<MailButton className="h-[34px] w-[34px]" />
 			</div>
 		</footer>
 	</body>

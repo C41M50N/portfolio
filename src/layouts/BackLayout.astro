@@ -1,0 +1,19 @@
+---
+import Layout from "@/layouts/Layout.astro";
+import { AnimatedLinkButton } from "@/components/buttons";
+
+interface Props {
+  title: string;
+  href?: string;
+}
+
+const { title, href } = Astro.props;
+---
+
+<Layout title={title}>
+  <section class="self-start py-4">
+    <AnimatedLinkButton label="go back" href={href || "/"} direction="bkwd" />
+  </section>
+
+  <slot />
+</Layout>
