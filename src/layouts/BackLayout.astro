@@ -11,7 +11,7 @@ const { title, href } = Astro.props;
 ---
 
 <Layout title={title}>
-  <section class="self-start py-4">
+  <section class="self-start pt-3 pb-4">
     <AnimatedLinkButton label="go back" href={href || "/"} direction="bkwd" />
   </section>
 
