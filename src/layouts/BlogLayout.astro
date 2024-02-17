@@ -1,0 +1,9 @@
+---
+import Layout from "@/layouts/BackLayout.astro";
+
+const { frontmatter } = Astro.props;
+---
+
+<Layout title={`${frontmatter.title} | Buffington's Blog`}>
+  <slot />
+</Layout>

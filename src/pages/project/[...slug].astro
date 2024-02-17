@@ -1,0 +1,45 @@
+---
+import type { GetStaticPaths } from "astro";
+import { getCollection } from "astro:content";
+import Layout from "@/layouts/BackLayout.astro";
+import { GitHubProjectButton, LiveProjectButton } from "@/components/buttons";
+import { Separator } from "@/components/ui/separator"
+import { ProjectImagesCarousel } from "@/components/project-images-carousel";
+
+export const getStaticPaths = ( async () => {
+  const projectEntries = await getCollection('projects');
+  return projectEntries.map((entry) => ({
+    params: { slug: entry.slug },
+    props: { entry }
+  }))
+}) satisfies GetStaticPaths;
+
+const { entry } = Astro.props;
+const { Content } = await entry.render();
+---
+
+<Layout title={`${entry.data.title} | Buffington's Projects`} href="/projects">
+  <div class="md:w-[672px] flex flex-col gap-4">
+    <div class="flex flex-row justify-between">
+
+      <div class="pt-4 col-span-1 space-y-2">
+        <h1 class="text-3xl font-semibold tracking-wide">{entry.data.title}</h1>
+        <p class="text-sm text-[#d3d3d4]">{entry.data.description}</p>
+        <div class="pt-2 flex flex-row gap-1">
+          {entry.data.live && <LiveProjectButton href={entry.data.live} />}
+          {entry.data.github && <GitHubProjectButton href={entry.data.github} />}
+        </div>
+      </div>
+
+      <div class="w-6"></div>
+      
+      {entry.data.images && <ProjectImagesCarousel client:load image_srcs={entry.data.images} />}
+    </div>
+
+    <Separator className="bg-gray-500 mt-2 mb-4" />
+
+    <div class="prose dark:prose-invert prose-p:text-[#d3d3d4]">
+      <Content />
+    </div>
+  </div>
+</Layout>

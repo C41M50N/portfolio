@@ -97,7 +97,7 @@ interface LiveProjectButtonProps {
 
 export function LiveProjectButton({ href, size }: LiveProjectButtonProps) {
   return (
-    <a href={href}>
+    <a href={href} target="_blank">
       <Button variant="outline" size={size || "sm"}>
         <div className="w-3 h-3 bg-[#63b681] animate-pulse border-2 border-black rounded-full" />
         <span className="pl-2 tracking-wide">Live</span>
@@ -113,7 +113,7 @@ interface GitHubProjectButtonProps {
 
 export function GitHubProjectButton({ href, size }: GitHubProjectButtonProps) {
   return (
-    <a href={href}>
+    <a href={href} target="_blank">
       <Button variant="outline" size={size || "sm"}>
         <GitHubSVG className='w-5' />
         <span className="pl-2 tracking-wide">GitHub</span>

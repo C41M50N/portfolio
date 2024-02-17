@@ -16,7 +16,8 @@ export const collections = {
       description: z.string().max(200),
       live: z.string().url().optional(),
       github: z.string().url().optional(),
-      isFeatured: z.boolean().optional()
+      isFeatured: z.boolean().optional(),
+      images: z.array(z.string()).optional()
     })
   })
 }

@@ -1,0 +1,212 @@
+---
+import { GlobeIcon } from "lucide-react";
+import Layout from "@/layouts/Layout.astro";
+import CVAvatar from "@/components/cv-avatar";
+import { GitHubButton, LinkedInButton, MailButton } from "@/components/buttons";
+import { Badge } from "@/components/ui/badge";
+
+const INFO = {
+  name: "Charles F. S. Buffington II",
+  initials: "CB",
+  about: "Software Engineer who likes to move fast ⚡⚡⚡",
+  summary: "Efficient, driven full-stack software engineer with 4+ years of experience in software development. I help companies design and implement secure software solutions to their toughest problems.",
+  location: "Michigan, USA",
+  github: "https://github.com/C41M50N",
+  experience: [
+    {
+      title: "Technical Analyst → Full Stack Engineer",
+      company: "Essium Labs",
+      timeline: "2020 - 2023",
+      link: "https://www.essiumlabs.com/",
+      skills: ["TypeScript", "React", "Python", "FastAPI", "Ruby on Rails", "Docker/Kubernetes", "Nginx", "Google Cloud"],
+      bullets: [
+        "Launched an admin dashboard that boosted analyst productivity by over *300%*",
+        "Utilized Docker, GitHub Actions, and Kubernetes to deploy to *2* applications",
+        "Improved customer satisfaction scores by *300%* by creating *3* background check integrations",
+        "Contributed to the reliability and performance of *3* enterprise web applications through maintenance and support",
+        "Transformed vague requirements into highly effective user interfaces, achieving a *10x* boost in customer productivity",
+      ],
+    }
+  ],
+  education: [
+    {
+      name: "University of Colorado Boulder",
+      degree: "Master of Science in Computer Science",
+      timeline: "2024 - 2026",
+      courses: [
+        "Software Architecture for Big Data",
+        "Data Mining Foundations",
+        "Foundations of Autonomous Systems",
+      ]
+    },
+    {
+      name: "Kettering University",
+      degree: "Bachelor of Science in Computer Science",
+      timeline: "2020 - 2024",
+      courses: [
+        "Foundations of Data Science",
+        "Cloud Computing",
+        "Computer Networks",
+        "Mobile Robotics",
+      ]
+    }
+  ],
+  skills: [
+    "TypeScript","Golang","Python","Java","Kotlin","HTML/CSS",
+    "React/Next.js","Astro","TanStack Query","Prisma ORM",
+    "Spring Boot","Hibernate","JUnit","Maven/Gradle",
+    "FastAPI/Flask/Django","SQLAlchemy","NumPy","Pandas",
+    "PostgreSQL","MySQL","MongoDB","Redis",
+    "Docker","Kubernetes","GCP","AWS","Vercel"
+  ],
+  projects: [
+    {
+      title: "",
+      description: "",
+      techstack: ["",""],
+      live_link: "",
+      github_link: ""
+    }
+  ]
+} as const;
+
+function processBullet(input: string): string {
+  let output = "";
+  let flag = false;
+  for (const c of input) {
+    if (c === '*') {
+      if (flag) {
+        output += "</b>"
+        flag = false;
+      } else {
+        output += "<b>"
+        flag = true;
+      }
+    } else {
+      output += c
+    }
+  }
+  return output
+}
+---
+
+<Layout title="Charles Buffington's CV">
+  <main class="container relative mx-auto scroll-my-12 overflow-auto p-4 print:p-12 md:p-16">
+    <section class="max-w-2xl mx-auto w-full space-y-8">
+      <div class="flex items-center justify-between">
+        <div class="flex-1 max-w-md space-y-1.5">
+          <h1 class="text-2xl font-bold">
+            {INFO.name}
+          </h1>
+          <p class="font-mono text-sm text-muted-foreground">
+            {INFO.about}
+          </p>
+          <div class="font-mono text-xs text-muted-foreground leading-none align-baseline flex flex-row space-x-2">
+            <GlobeIcon className="size-3" />
+            <span>{INFO.location}</span>
+          </div>
+          <div class="flex space-x-2 pt-1 font-mono text-sm print:hidden">
+            <LinkedInButton className="size-8" />
+            <GitHubButton className="size-8" />
+            <MailButton className="size-8" />
+          </div>
+        </div>
+
+        <CVAvatar client:load name={INFO.name} initials={INFO.initials} />
+      </div>
+    </section>
+
+    <div class="h-8" />
+
+    <section class="max-w-2xl mx-auto w-full space-y-3">
+      <h2 class="text-xl font-bold">About</h2>
+      <p class="font-mono text-pretty text-sm text-muted-foreground">
+        {INFO.summary}
+      </p>
+    </section>
+
+    <div class="h-8" />
+
+    <section class="max-w-2xl mx-auto w-full space-y-3">
+      <h2 class="text-xl font-bold">Work Experience</h2>
+      <div class="flex flex-col gap-3">
+        {INFO.experience.map((exp) => (
+          <div class="space-y-1">
+            <!-- header -->
+            <div class="pb-1">
+              <div class="flex flex-row justify-between pb-1">
+                <h3 class="font-semibold leading-none hover:underline">
+                  <a href={exp.link}>
+                    {exp.company}
+                  </a>
+                </h3>
+
+                <span class="tabular-nums text-sm text-muted-foreground">
+                  {exp.timeline}
+                </span>
+              </div>
+              <h4 class="font-mono text-sm leading-none">
+                {exp.title}
+              </h4>
+            </div>
+
+            <!-- bullets -->
+            <ul class="font-mono text-sm text-muted-foreground pb-1 pl-2 space-y-1">
+              {exp.bullets.map((bullet) => (
+                <li set:html={`• ${processBullet(bullet)}`} />
+              ))}
+            </ul>
+
+            <!-- tech stack -->
+            <div class="flex flex-row flex-wrap gap-1">
+              {exp.skills.map((skill) => (
+                <Badge variant="secondary" className="rounded-md">{skill}</Badge>
+              ))}
+            </div>
+          </div>
+        ))}
+      </div>
+    </section>
+
+    <div class="h-8" />
+
+    <section class="max-w-2xl mx-auto w-full space-y-3">
+      <h2 class="text-xl font-bold">Education</h2>
+      <div class="flex flex-col gap-6">
+        {INFO.education.map((edu) => (
+          <div>
+            <div class="flex flex-row justify-between">
+              <h3 class="font-mono font-semibold leading-none">
+                {edu.name}
+              </h3>
+              <span class="tabular-nums text-sm text-muted-foreground">
+                {edu.timeline}
+              </span>
+            </div>
+            
+            <span class="text-muted-foreground">
+              {edu.degree}
+            </span>
+
+            <div class="flex flex-row flex-wrap gap-1 pt-1">
+              {edu.courses.map((course) => (
+                <Badge variant="secondary" className="rounded-md">{course}</Badge>
+              ))}
+            </div>
+          </div>
+        ))}
+      </div>
+    </section>
+
+    <div class="h-8" />
+
+    <section class="max-w-2xl mx-auto w-full space-y-3">
+      <h2 class="text-xl font-bold">Skills</h2>
+      <div class="flex flex-row flex-wrap gap-1">
+        {INFO.skills.map((skill) => (
+          <Badge variant="secondary" className="rounded-md">{skill}</Badge>
+        ))}
+      </div>
+    </section>
+  </main>
+</Layout>
