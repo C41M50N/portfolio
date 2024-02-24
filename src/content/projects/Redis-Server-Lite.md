@@ -7,7 +7,7 @@ isFeatured: true
 ---
 
 ## Description
-Redis Server Lite is a simplified Redis implementation written in Golang. This project relies heavily on Golang's robust standard library. I used Golang's "net" package as the foundation for creating socket connections. I also used Golang's goroutines to handle concurrent requests. I utilized the Test-driven development (TDD) technique to iteratively add support for commands.
+Redis Server Lite is a simplified Redis implementation written in Golang. This project relies heavily on Golang’s robust standard library. I used Golang’s “net” package as the foundation for creating socket connections. I also used Golang’s goroutines to handle concurrent requests. I utilized the Test-driven development (TDD) technique to add support for commands iteratively.
 
 ## Supported Commands
 ### PING
