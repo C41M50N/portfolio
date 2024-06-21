@@ -8,5 +8,9 @@ export default defineConfig({
   integrations: [
     react(), 
     tailwind({ applyBaseStyles: false })
-  ]
+  ],
+
+  redirects: {
+    '/cv': 'https://cv.cbuff.dev/'
+  }
 });
