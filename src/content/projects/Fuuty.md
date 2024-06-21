@@ -22,9 +22,9 @@ Fuuty.gg is a web based system that consists of a web server, cache, and CDN. It
 
 ## System Design
 ### System Components
-- Web Server (Next.js) for serving HTML to clients and hosting tRPC endpoints
-- LRU Cache (Redis) for storing responses to game-related requests (searching, guessing, etc.)
-- CDN based on storage bucket (AWS S3) for serving player and club images.
+- Web Server ([Next.js](https://nextjs.org/)) for serving HTML to clients and hosting tRPC endpoints
+- LRU Cache ([Redis](https://redis.io/)) for storing responses to game-related requests (searching, guessing, etc.)
+- CDN based on storage bucket ([AWS S3](https://aws.amazon.com/s3/)) for serving player and club images
 
 ### tRPC Endpoints
 ```typescript

@@ -12,7 +12,7 @@ interface ProjectImagesCarouselProps {
 
 export function ProjectImagesCarousel({ image_srcs }: ProjectImagesCarouselProps) {
   return (
-    <Carousel className="mx-auto max-w-56">
+    <Carousel className="mx-auto w-full px-2">
       <CarouselContent className="-ml-3">
         {image_srcs.map((image_src, idx) => (
           <CarouselItem key={idx} className="pl-3">
