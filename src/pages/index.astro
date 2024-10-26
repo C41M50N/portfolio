@@ -44,48 +44,6 @@ const featuredBlogPosts = await getCollection("blogs", (post) => post.data.isFea
 			</div>
 		</aside>
 	</section>
-	
-	<!-- FEATURED BLOG POSTS -->
-	<section id="posts" class="py-10 pt-24 flex flex-col items-center justify-center">
-		<div class="flex flex-col gap-3 px-4 text-center sm:px-0">
-			<h1 class="text-2xl md:text-3xl lg:text-4xl font-bold bg-clip-text">Blog Posts</h1>
-			<span class="text-white/50 italic">"Write. Rewrite. When not writing or rewriting, read. I know of no shortcuts."<span class="not-italic"> &boxh; Larry King</span></span>
-		</div>
-
-		<div class="min-h-52 w-full max-w-7xl grid gap-4 md:grid-cols-2 pt-10 pb-6 px-8">
-			{featuredBlogPosts.map((post) => (
-				<div class="md:min-w-[480px] bg-[#161616] border border-[#222222] rounded-lg md:flex md:flex-col md:flex-1 p-8 sm:p-10 lg:py-8 lg:pr-10 lg:pb-6 lg:px-8">
-					<div class="flex flex-col items-start">
-						<a href={`/blog/${post.slug}`}>
-							<h2 class="text-2xl text-white/95 font-semibold pb-1 hover:underline underline-offset-2">
-								{post.data.title}
-							</h2>
-						</a>
-						<p class="text-white/70">
-							{post.data.subtitle}
-						</p>
-					</div>
-
-					<div class="pt-4 flex flex-row items-center justify-between">
-						<div class="flex flex-row items-center gap-1 text-white/50">
-							<CalendarDays strokeWidth={1.75} className='h-[18px]' />
-							<p class="pr-2">
-								{dayjs(post.data.date).format("MMMM D, YYYY")}
-							</p>
-						</div>
-
-						<div class="flex flex-row gap-2">
-							{post.data.tags.map((tag) => (
-								<Badge variant="secondary">{`# ${tag}`}</Badge>
-							))}
-						</div>
-					</div>
-				</div>
-			))}
-		</div>
-
-		<AnimatedLinkButton label="All Blog Posts" href="/blog" />
-	</section>
 
 	<!-- FEATURED PROJECTS -->
 	<section id="projects" class="py-10 pt-24 flex flex-col items-center justify-center">

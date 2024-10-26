@@ -7,9 +7,10 @@ import {
   DrawerClose 
 } from '@/components/ui/drawer';
 import { Button } from '@/components/ui/button';
+import type { NavLinkProps } from "./nav-link";
 
 interface HeaderDrawerProps {
-  navItems: NavItem[]
+  navItems: NavLinkProps[]
 }
 
 export function HeaderDrawer({ navItems }: HeaderDrawerProps) {
@@ -25,7 +26,7 @@ export function HeaderDrawer({ navItems }: HeaderDrawerProps) {
         <DrawerFooter className="pt-10 pb-32">
           {navItems.map((item) => (
             <DrawerClose asChild>
-              <a href={item.href} aria-label={item.label}>
+              <a href={item.href} aria-label={`Go to ${item.title} page`}>
                 <Button variant="outline" className="w-full text-lg uppercase opacity-70 hover:opacity-100 p-4">
                   {item.title}
                 </Button>

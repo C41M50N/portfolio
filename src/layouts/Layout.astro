@@ -4,6 +4,7 @@ import "@fontsource/inter";
 import "@/styles/globals.css";
 import { HeaderDrawer } from "@/components/header-drawer";
 import { GitHubButton, LinkedInButton, MailButton } from '@/components/buttons';
+import NavLink, { type NavLinkProps } from "@/components/nav-link";
 
 interface Props {
 	title: string;
@@ -11,26 +12,24 @@ interface Props {
 
 const { title } = Astro.props;
 
-const navItems: NavItem[] = [
+const navItems: NavLinkProps[] = [
 	// {
 	// 	title: "About",
 	// 	label: "Go to about page",
 	// 	href: "/about",
 	// },
 	{
-		title: "Blog",
-		label: "Go to blog page",
-		href: "/blog",
-	},
-	{
 		title: "Projects",
-		label: "Go to projects page",
 		href: "/projects",
 	},
 	{
+		title: "Blog",
+		href: "https://what-the-chuck.com",
+	},
+	{
 		title: "CV",
-		label: "Go to CV page",
-		href: "/cv",
+		href: "https://cv.cbuff.dev",
+		external: true,
 	},
 	// {
 	// 	title: "Tools",
@@ -52,7 +51,7 @@ const navItems: NavItem[] = [
 		<meta property="og:title" content={title} />
 		<meta property="og:description" content="Charles Buffington's portfolio." />
 		<meta property="og:site_name" content="Charles Buffington" />
-		<meta property="og:see_also" content="https://cbuff.dev" />
+		<meta property="og:see_also" content="https://github.com/C41M50N" />
 		<meta itemprop="name" content={title} />
 		<meta itemprop="description" content="Charles Buffington's portfolio." />
 		<meta name="viewport" content="width=device-width" />
@@ -64,7 +63,7 @@ const navItems: NavItem[] = [
 		class="dark min-h-screen antialiased flex flex-col items-center justify-start overscroll-y-none"
 	>
 		<header
-			class="bg-[#111111] flex items-center justify-between px-7 md:px-0 md:justify-around h-14 w-full border-b border-[#333333] fixed z-50 top-0 bg-background-2 transition-colors"
+			class="bg-[#1c1d1e] flex items-center justify-between px-7 md:px-0 md:justify-around h-14 w-full border-b border-[#333333] fixed z-50 top-0 bg-background-2 transition-colors"
 		>
 			<a
 				href="/"
@@ -99,20 +98,10 @@ const navItems: NavItem[] = [
 			</a>
 
 			<nav class="hidden md:block">
-				<ul class="flex flex-row justify-center items-center gap-4">
-					{
-						navItems.map((item) => (
-							<li>
-								<a
-									href={item.href}
-									aria-label={item.label}
-									class="cursor-pointer opacity-60 hover:opacity-100"
-								>
-									{item.title}
-								</a>
-							</li>
-						))
-					}
+				<ul class="flex flex-row justify-center items-center gap-6">
+					{navItems.map((item) => (
+						<NavLink title={item.title} href={item.href} external={item.external} />
+					))}
 				</ul>
 			</nav>
 
