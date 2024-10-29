@@ -1,7 +1,7 @@
 ---
 import { getCollection } from "astro:content";
 import BackLayout from "@/layouts/BackLayout.astro";
-import { GitHubProjectButton, LiveProjectButton } from "@/components/buttons";
+import { GitHubProjectButton, LiveProjectButton } from "@/components/projects/buttons";
 
 const allProjects = await getCollection("projects");
 ---

@@ -25,7 +25,7 @@ export function HeaderDrawer({ navItems }: HeaderDrawerProps) {
       <DrawerContent>
         <DrawerFooter className="pt-10 pb-32">
           {navItems.map((item) => (
-            <DrawerClose asChild>
+            <DrawerClose key={item.title} asChild>
               <a href={item.href} aria-label={`Go to ${item.title} page`}>
                 <Button variant="outline" className="w-full text-lg uppercase opacity-70 hover:opacity-100 p-4">
                   {item.title}

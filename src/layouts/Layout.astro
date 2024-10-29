@@ -3,7 +3,7 @@ import dayjs from "dayjs";
 import "@fontsource/inter";
 import "@/styles/globals.css";
 import { HeaderDrawer } from "@/components/header-drawer";
-import { GitHubButton, LinkedInButton, MailButton } from '@/components/buttons';
+import { GitHubButton, LinkedInButton, MailButton, TwitterButton } from '@/components/projects/buttons';
 import NavLink, { type NavLinkProps } from "@/components/nav-link";
 
 interface Props {
@@ -63,50 +63,52 @@ const navItems: NavLinkProps[] = [
 		class="dark min-h-screen antialiased flex flex-col items-center justify-start overscroll-y-none"
 	>
 		<header
-			class="bg-[#1c1d1e] flex items-center justify-between px-7 md:px-0 md:justify-around h-14 w-full border-b border-[#333333] fixed z-50 top-0 bg-background-2 transition-colors"
+			class="bg-[#171717] w-full h-16 border-b border-[#333333] fixed z-50 top-0 bg-background-2 transition-colors"
 		>
-			<a
-				href="/"
-				aria-label="Go to the home page"
-				class="cursor-pointer h-16 w-16"
-			>
-				<svg
-					viewBox="0 0 384 384"
-					fill="none"
-					xmlns="http://www.w3.org/2000/svg"
+			<div class="max-w-5xl w-full mx-auto px-6 md:px-0 flex items-center justify-between md:justify-around">
+				<a
+					href="/"
+					aria-label="Go to the home page"
+					class="cursor-pointer h-16 w-16"
 				>
-					<g id="Frame 1">
-						<path id="Vector-8" d="M302.5 95.0989L311.75 144.32"></path>
-						<path
-							id="Vector-7"
-							d="M245.5 124.964L277 108.273L302.5 95.0989L328.5 82"></path>
-						<path id="Vector-6" d="M277 108.273L285 158.14"></path>
-						<path
-							id="Vector-5"
-							d="M245.5 178.964L285 158.14L311.75 144.32L338.5 130.5"></path>
-						<path id="Vector-4" d="M180.5 215C277 193.5 356 190.5 154.5 302.5"
-						></path>
-						<path
-							id="Vector-3"
-							d="M180.5 288.12C180.5 240.92 180.5 194.334 180.5 172.001"></path>
-						<path
-							id="Vector-2"
-							d="M140.5 172.001C168.913 103.811 45 184 45 244C45 304 187.093 212.743 222.5 193.5C237.688 185.245 257.25 172.001 260 164C265.5 148 254 133.5 233.5 139.5C172.981 157.213 180.5 225 180.5 288"
-						></path>
-					</g>
-				</svg>
-			</a>
+					<svg
+						viewBox="0 0 384 384"
+						fill="none"
+						xmlns="http://www.w3.org/2000/svg"
+					>
+						<g id="Frame 1">
+							<path id="Vector-8" d="M302.5 95.0989L311.75 144.32"></path>
+							<path
+								id="Vector-7"
+								d="M245.5 124.964L277 108.273L302.5 95.0989L328.5 82"></path>
+							<path id="Vector-6" d="M277 108.273L285 158.14"></path>
+							<path
+								id="Vector-5"
+								d="M245.5 178.964L285 158.14L311.75 144.32L338.5 130.5"></path>
+							<path id="Vector-4" d="M180.5 215C277 193.5 356 190.5 154.5 302.5"
+							></path>
+							<path
+								id="Vector-3"
+								d="M180.5 288.12C180.5 240.92 180.5 194.334 180.5 172.001"></path>
+							<path
+								id="Vector-2"
+								d="M140.5 172.001C168.913 103.811 45 184 45 244C45 304 187.093 212.743 222.5 193.5C237.688 185.245 257.25 172.001 260 164C265.5 148 254 133.5 233.5 139.5C172.981 157.213 180.5 225 180.5 288"
+							></path>
+						</g>
+					</svg>
+				</a>
 
-			<nav class="hidden md:block">
-				<ul class="flex flex-row justify-center items-center gap-6">
-					{navItems.map((item) => (
-						<NavLink title={item.title} href={item.href} external={item.external} />
-					))}
-				</ul>
-			</nav>
+				<nav class="hidden md:block">
+					<ul class="flex flex-row justify-center items-center gap-6">
+						{navItems.map((item) => (
+							<NavLink title={item.title} href={item.href} external={item.external} />
+						))}
+					</ul>
+				</nav>
 
-			<div class="md:hidden">
-				<HeaderDrawer navItems={navItems} client:only="react" />
+				<div class="md:hidden">
+					<HeaderDrawer navItems={navItems} client:only="react" />
+				</div>
 			</div>
 		</header>
 
@@ -114,19 +116,20 @@ const navItems: NavLinkProps[] = [
 			<slot />
 		</main>
 
-		<footer class="mt-auto flex flex-row items-center justify-around py-14 w-full">
+		<footer class="max-w-5xl flex flex-row items-center justify-around py-14 w-full">
 			<div class="flex flex-col">
 				<span class="text-white/50 text-sm">Built with 
 					<a class="text-white/90 hover:text-white/100 hover:underline" href="https://astro.build/">Astro</a>, 
 					<a class="text-white/90 hover:text-white/100 hover:underline" href="https://ui.shadcn.com/">shadcn</a>, and 
 					<a class="text-white/90 hover:text-white/100 hover:underline" href="https://vercel.com/">Vercel</a>.
 				</span>
-				<span class="text-white/50 text-sm">Copyright © {dayjs().year()} Charles Buffington</span>
+				<span class="text-white/50 text-sm">Copyright © {dayjs().year()} · Charles Buffington</span>
 			</div>
 
 			<div class="flex flex-row gap-3">
 				<LinkedInButton className="size-[34px]" />
 				<GitHubButton className="size-[34px]" />
+				<TwitterButton className="size-[34px]" />
 				<MailButton className="size-[34px]" />
 			</div>
 		</footer>
