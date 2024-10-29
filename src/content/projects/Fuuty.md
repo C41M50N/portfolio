@@ -2,7 +2,6 @@
 title: Fuuty.gg
 description: >
   A next-gen soccer knowledge gaming platform.
-isFeatured: true
 images:
  - /assets/fuuty/landing.png
  - /assets/fuuty/game.png

@@ -2,7 +2,6 @@
 title: Lenny Trading Bot
 description: >
   ....
-isFeatured: true
 ---
 
 ## Backstory

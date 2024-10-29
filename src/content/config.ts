@@ -8,7 +8,8 @@ export const collections = {
       live: z.string().url().optional(),
       github: z.string().url().optional(),
       isFeatured: z.boolean().optional(),
-      images: z.array(z.string()).optional()
+      images: z.array(z.string()).optional(),
+      thumbnailImage: z.string().optional(),
     })
   })
 }

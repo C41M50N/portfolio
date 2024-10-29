@@ -1,7 +1,9 @@
 import { ArrowLeft, ArrowRight, Mail, TwitterIcon } from "lucide-react";
 import { Button, type ButtonProps } from "@/components/ui/button";
 import { GitHubSVG } from "@/components/svgs";
-import githubIMG from "@/assets/github-white.png"
+import githubIMG from "@/assets/logos/github.png";
+import linkedinIMG from "@/assets/logos/linkedin.svg";
+import twitterIMG from "@/assets/logos/x.png";
 
 interface LinkedInButtonProps {
   className?: React.HTMLAttributes<ButtonProps>["className"];
@@ -11,7 +13,7 @@ export function LinkedInButton({ className }: LinkedInButtonProps) {
   return (
     <a href="https://www.linkedin.com/in/charles-buffington/" target="_blank">
       <Button variant="outline" size="icon" className={`${className || ""} p-[5px] opacity-70 hover:opacity-90 transition-opacity border-2`}>
-        <img src="https://upload.wikimedia.org/wikipedia/commons/8/81/LinkedIn_icon.svg" className="filter grayscale" />
+        <img src={linkedinIMG.src} className="filter grayscale" />
       </Button>
     </a>
   )
@@ -53,8 +55,7 @@ export function TwitterButton({ className }: TwitterButtonProps) {
   return (
     <a href="https://x.com/C41M50N" target="_blank">
       <Button variant="outline" size="icon" className={`${className || ""} p-[5px] opacity-70 hover:opacity-90 transition-opacity border-2`}>
-        <img src="https://uxwing.com/wp-content/themes/uxwing/download/brands-and-social-media/x-social-media-white-icon.png" />
-        {/* <TwitterIcon strokeWidth={1.75} /> */}
+        <img src={twitterIMG.src} />
       </Button>
     </a>
   )

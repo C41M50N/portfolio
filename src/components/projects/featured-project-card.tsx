@@ -1,5 +1,5 @@
 import type { CollectionEntry } from "astro:content"
-import thumbnail from "@/assets/subtrack/thumbnail.jpg";
+import defaultThumbnailImg from "@/assets/default-thumbnail.jpg";
 import { GitHubProjectButton, LiveProjectButton } from "./buttons";
 
 type Props = {
@@ -16,7 +16,7 @@ export default function FeaturedProjectCard({ project }: Props) {
       </a>
 
       <div className="relative h-44 w-full rounded-t-lg overflow-hidden">
-        <img src={thumbnail.src} className="transition-all duration-300 filter grayscale group-hover:filter-none" />
+        <img src={project.data.thumbnailImage ?? defaultThumbnailImg.src} className="transition-all duration-300 filter grayscale group-hover:filter-none" />
       </div>
 
       <div className="pl-8 pr-12 pt-6 pb-4">

@@ -13,7 +13,7 @@ const services: Service[] = [
 	{
 		title: "MVP Development",
 		description: "Turn your concept into a working product quickly and efficiently.",
-		image: "/src/assets/subtrack/thumbnail.jpg",
+		image: "/src/assets/default-thumbnail.jpg",
 		details: [
 			"Build a proof-of-concept to validate your idea",
 			"Develop a minimum viable product for market testing",
@@ -25,7 +25,7 @@ const services: Service[] = [
 	{
 		title: "Engineering Consultation",
 		description: "Leverage my experience as a Software Engineering Architect to solve complex technical challenges.",
-		image: "/src/assets/subtrack/thumbnail.jpg",
+		image: "/src/assets/default-thumbnail.jpg",
 		details: [
 			"Technical architecture planning and review",
 			"Performance optimization and scalability solutions",
@@ -39,7 +39,7 @@ const services: Service[] = [
 	{
 		title: "Full-Time Engineering",
 		description: "Looking to strengthen your engineering team?",
-		image: "/src/assets/subtrack/thumbnail.jpg",
+		image: "/src/assets/default-thumbnail.jpg",
 		details: [
 			"Full-stack web development",
 			"API design and implementation",
@@ -57,13 +57,19 @@ const services: Service[] = [
 	<!-- HEADLINE -->
 	<section id="about" class="relative flex flex-col-reverse lg:flex-row items-center px-2">
 		<article class="max-w-[600px] lg:pt-20 flex flex-col justify-center items-center lg:items-start gap-3">
-			<div class="flex flex-col justify-center items-center lg:items-start pt-5 lg:pt-6">
-				<h1 class="text-2xl lg:text-5xl font-bold bg-clip-text">Charles F.S. Buffington II</h1>
-				<h2 class="text-white/80 text-sm lg:text-xl">Software Engineer, Productivity enthusiast.</h2>
+			<div class="flex flex-col justify-center items-center gap-0.5 lg:items-start pt-5 lg:pt-6">
+				<h1 class="text-2xl lg:text-5xl font-bold bg-clip-text">Charles Buffington II</h1>
+				<h2 class="text-white/80 text-sm lg:text-xl">Software Engineer, Follower of Christ.</h2>
 			</div>
 			<p class="text-md text-white/60 text-center lg:text-start text-sm lg:text-base">
-				I craft software solutions to companies' toughest problems by designing for security and scale and building fast with best practices.
+				I craft elegant, robust software solutions that drive business success.
+				<br>
+				I'm interested in software design, productivity science, and robotics.
+				<br>
+				Currently based in <a href="https://maps.app.goo.gl/HGJqpsgaUhTTWXMT6" target="_blank" class="underline hover:text-white/90">Michigan, USA</a>.
+				Open to relocation 👀.
 			</p>
+			<!-- TODO: Tech Stack -->
 			<nav class="flex flex-row gap-3">
 				<LinkedInButton />
 				<GitHubButton />
@@ -112,7 +118,7 @@ const services: Service[] = [
 				Here are all of the ways that I can help YOU.
 			</p>
 
-			<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+			<div class="max-w-lg md:max-w-full grid grid-cols-1 lg:grid-cols-3 gap-8">
 				{services.map((service) => (
 					<ServiceCard service={service} />
 				))}
