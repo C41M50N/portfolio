@@ -5,6 +5,7 @@ import Layout from "@/layouts/Layout.astro";
 import { GitHubProjectButton, LiveProjectButton } from "@/components/projects/buttons";
 import { Separator } from "@/components/ui/separator"
 import { ProjectImagesCarousel } from "@/components/project-images-carousel";
+import defaultThumbnailImg from "@/assets/default-thumbnail.jpg";
 
 export const getStaticPaths = ( async () => {
   const projectEntries = await getCollection('projects');
@@ -19,17 +20,26 @@ const { Content } = await entry.render();
 ---
 
 <Layout title={`${entry.data.title} | Buffington's Projects`}>
-  <div class="max-w-3xl w-full flex flex-col gap-4">
-    <div class="pt-10 col-span-1 space-y-2">
-      <h1 class="text-4xl font-semibold tracking-wide">{entry.data.title}</h1>
-      <p class="text-base text-[#d3d3d4]">{entry.data.description}</p>
-      <div class="pt-2 flex flex-row gap-4">
-        {entry.data.live && <LiveProjectButton href={entry.data.live} />}
-        {entry.data.github && <GitHubProjectButton href={entry.data.github} />}
+  <div class="max-w-3xl w-full px-10 flex flex-col gap-4">
+    <div class="pt-10 flex flex-row items-center space-x-10">
+      <div class="max-w-72">
+        <img
+          class="rounded-sm"
+          src={entry.data.thumbnailImage ?? defaultThumbnailImg.src}
+        />
+      </div>
+
+      <div class="col-span-1 space-y-2">
+        <h1 class="text-3xl font-semibold tracking-wide">{entry.data.title}</h1>
+        <p class="text-base text-[#d3d3d4]">{entry.data.description}</p>
+        <div class="pt-2 flex flex-row gap-4">
+          {entry.data.live && <LiveProjectButton href={entry.data.live} />}
+          {entry.data.github && <GitHubProjectButton href={entry.data.github} />}
+        </div>
       </div>
     </div>
     
-    <Separator className="bg-gray-500 mt-2 mb-4" />
+    <Separator className="bg-zinc-800 mt-2 mb-4" />
     
     {entry.data.images && <ProjectImagesCarousel client:load image_srcs={entry.data.images} />}
 

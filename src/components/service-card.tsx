@@ -2,7 +2,7 @@ import { ArrowRight } from "lucide-react";
 
 export default function ServiceCard({ service }: { service: Service }) {
   return (
-    <div className="group relative flex flex-col h-full bg-[#161616] hover:bg-[#1F1F1F] border border-zinc-900 hover:border-zinc-800 rounded-sm shadow-xl hover:cursor-pointer transition-colors duration-300">
+    <div className="group relative flex flex-col max-w-lg h-full bg-[#161616] hover:bg-[#1F1F1F] border border-zinc-900 hover:border-zinc-800 rounded-sm shadow-xl hover:cursor-pointer transition-colors duration-300">
       <a href={service.calLink} target="_blank" className="absolute inset-0 z-10">
         <span className="sr-only">Book a call: {service.title}</span>
       </a>

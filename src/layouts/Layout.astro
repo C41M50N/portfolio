@@ -1,4 +1,5 @@
 ---
+import { ViewTransitions } from 'astro:transitions';
 import dayjs from "dayjs";
 import "@fontsource/inter";
 import "@/styles/globals.css";
@@ -58,6 +59,7 @@ const navItems: NavLinkProps[] = [
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<meta name="generator" content={Astro.generator} />
 		<title>{title}</title>
+		<ViewTransitions />
 	</head>
 	<body
 		class="dark min-h-screen antialiased flex flex-col items-center justify-start overscroll-y-none"
@@ -112,7 +114,7 @@ const navItems: NavLinkProps[] = [
 			</div>
 		</header>
 
-		<main class="w-full flex flex-col items-center justify-start mt-14 pt-1">
+		<main class="min-h-[calc(100vh-64px-144px)] w-full flex flex-col items-center justify-start mt-14 pt-1">
 			<slot />
 		</main>
 
