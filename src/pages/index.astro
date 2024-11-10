@@ -2,7 +2,7 @@
 import { getCollection } from 'astro:content';
 import Layout from '@/layouts/Layout.astro';
 import portraitImg from '@/assets/portrait.png';
-import { AnimatedLinkButton, GitHubButton, LinkedInButton, MailButton, TwitterButton } from '@/components/projects/buttons';
+import { AnimatedLinkButton, BlueskyButton, GitHubButton, LinkedInButton, MailButton, TwitterButton } from '@/components/projects/buttons';
 import FeaturedProjectCard from '@/components/projects/featured-project-card';
 import ServiceCard from '@/components/service-card';
 import { Button } from '@/components/ui/button';
@@ -71,9 +71,10 @@ const services: Service[] = [
 			</p>
 			<!-- TODO: Tech Stack -->
 			<nav class="flex flex-row gap-3">
-				<LinkedInButton className="size-9" />
 				<GitHubButton className="size-9" />
+				<LinkedInButton className="size-9" />
 				<TwitterButton className="size-9" />
+				<BlueskyButton className="size-9" />
 				<MailButton className="size-9" />
 
 				<div></div>

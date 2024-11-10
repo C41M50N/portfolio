@@ -4,7 +4,7 @@ import dayjs from "dayjs";
 import "@fontsource/inter";
 import "@/styles/globals.css";
 import { HeaderDrawer } from "@/components/header-drawer";
-import { GitHubButton, LinkedInButton, MailButton, TwitterButton } from '@/components/projects/buttons';
+import { BlueskyButton, GitHubButton, LinkedInButton, MailButton, TwitterButton } from '@/components/projects/buttons';
 import NavLink, { type NavLinkProps } from "@/components/nav-link";
 
 interface Props {
@@ -129,9 +129,10 @@ const navItems: NavLinkProps[] = [
 			</div>
 
 			<div class="flex flex-row gap-3">
-				<LinkedInButton className="size-[34px]" />
 				<GitHubButton className="size-[34px]" />
+				<LinkedInButton className="size-[34px]" />
 				<TwitterButton className="size-[34px]" />
+				<BlueskyButton className="size-[34px]" />
 				<MailButton className="size-[34px]" />
 			</div>
 		</footer>

@@ -4,6 +4,7 @@ import { GitHubSVG } from "@/components/svgs";
 import githubIMG from "@/assets/logos/github.png";
 import linkedinIMG from "@/assets/logos/linkedin.svg";
 import twitterIMG from "@/assets/logos/x.png";
+import blueskyIMG from "@/assets/logos/bluesky.svg";
 
 interface LinkedInButtonProps {
   className?: React.HTMLAttributes<ButtonProps>["className"];
@@ -56,6 +57,20 @@ export function TwitterButton({ className }: TwitterButtonProps) {
     <a href="https://x.com/C41M50N" target="_blank">
       <Button variant="outline" size="icon" className={`${className || ""} p-[5px] opacity-70 hover:opacity-90 transition-opacity border-2`}>
         <img src={twitterIMG.src} />
+      </Button>
+    </a>
+  )
+}
+
+interface BlueskyButtonProps {
+  className?: React.HTMLAttributes<ButtonProps>["className"];
+}
+
+export function BlueskyButton({ className }: BlueskyButtonProps) {
+  return (
+    <a href="https://bsky.app/profile/cbuff.dev" target="_blank">
+      <Button variant="outline" size="icon" className={`${className || ""} p-[5px] opacity-70 hover:opacity-90 transition-opacity border-2`}>
+        <img src={blueskyIMG.src} />
       </Button>
     </a>
   )
