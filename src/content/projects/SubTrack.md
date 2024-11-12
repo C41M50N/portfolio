@@ -8,6 +8,14 @@ isFeatured: true
 thumbnailImage: /src/assets/subtrack/subtrack-thumbnail.jpg
 images:
   - /assets/subtrack/dashboard.png
+techstack:
+  - nextjs
+  - typescript
+  - trpc
+  - postgres
+  - tailwind
+  - vercel
+priority: 9
 ---
 
 ## Product Description

@@ -16,8 +16,8 @@ export function ProjectImagesCarousel({ image_srcs }: ProjectImagesCarouselProps
       <CarouselContent className="-ml-3">
         {image_srcs.map((image_src, idx) => (
           <CarouselItem key={idx} className="pl-3">
-            <div className="border border-gray-500 rounded-xl p-2">
-              <img src={`/src/${image_src}`} alt="..." />
+            <div className="border border-zinc-700 rounded-sm p-1.5">
+              <img src={`/src/${image_src}`} alt={`project image ${idx+1}`} className="rounded-sm" />
             </div>
           </CarouselItem>
         ))}

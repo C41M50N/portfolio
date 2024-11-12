@@ -2,6 +2,10 @@
 title: Lenny Trading Bot
 description: >
   ....
+thumbnailImage: /src/assets/default-thumbnail.jpg
+techstack:
+  - nextjs
+hidden: true
 ---
 
 ## Backstory

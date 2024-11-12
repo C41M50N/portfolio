@@ -1,6 +1,8 @@
 import type { CollectionEntry } from "astro:content"
 import defaultThumbnailImg from "@/assets/default-thumbnail.jpg";
 import { GitHubProjectButton, LiveProjectButton } from "./buttons";
+import { TechBadge } from "./tech-badge";
+import { TechCatalog } from "@/lib/data";
 
 type Props = {
   project: CollectionEntry<"projects">;
@@ -28,7 +30,13 @@ export default function FeaturedProjectCard({ project }: Props) {
           {project.data.description}
         </span>
 
-        <div className="mt-4 flex flex-row items-center space-x-4 relative z-20">
+        <div className="pt-2 flex flex-row gap-x-2">
+          {project.data.techstack.slice(0,4).map((tech) => (
+            <TechBadge data={TechCatalog[tech]} />
+          ))}
+        </div>
+
+        <div className="mt-4 flex flex-row items-center space-x-3 relative z-20">
           {project.data.live && (
             <LiveProjectButton href={project.data.live} />
           )}

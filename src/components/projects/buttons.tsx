@@ -1,10 +1,11 @@
-import { ArrowLeft, ArrowRight, Mail, TwitterIcon } from "lucide-react";
+import { ArrowLeft, ArrowRight, Mail } from "lucide-react";
 import { Button, type ButtonProps } from "@/components/ui/button";
 import { GitHubSVG } from "@/components/svgs";
-import githubIMG from "@/assets/logos/github.png";
-import linkedinIMG from "@/assets/logos/linkedin.svg";
-import twitterIMG from "@/assets/logos/x.png";
-import blueskyIMG from "@/assets/logos/bluesky.svg";
+import githubIMG from "@/assets/social-logos/github.png";
+import linkedinIMG from "@/assets/social-logos/linkedin.svg";
+import twitterIMG from "@/assets/social-logos/x.png";
+import blueskyIMG from "@/assets/social-logos/bluesky.svg";
+import { BLUESKY, EMAIL, GITHUB, LINKEDIN, TWITTER } from "@/lib/data";
 
 interface LinkedInButtonProps {
   className?: React.HTMLAttributes<ButtonProps>["className"];
@@ -12,7 +13,7 @@ interface LinkedInButtonProps {
 
 export function LinkedInButton({ className }: LinkedInButtonProps) {
   return (
-    <a href="https://www.linkedin.com/in/charles-buffington/" target="_blank">
+    <a href={LINKEDIN} target="_blank">
       <Button variant="outline" size="icon" className={`${className || ""} p-[5px] opacity-70 hover:opacity-90 transition-opacity border-2`}>
         <img src={linkedinIMG.src} className="filter grayscale" />
       </Button>
@@ -26,7 +27,7 @@ interface GitHubButtonProps {
 
 export function GitHubButton({ className }: GitHubButtonProps) {
   return (
-    <a href="https://github.com/C41M50N" target="_blank">
+    <a href={GITHUB} target="_blank">
       <Button variant="outline" size="icon" className={`${className || ""} p-[5px] opacity-70 hover:opacity-90 transition-opacity border-2`}>
         <img src={githubIMG.src} />
       </Button>
@@ -40,7 +41,7 @@ interface MailButtonProps {
 
 export function MailButton({ className }: MailButtonProps) {
   return (
-    <a href="mailto:hello.cfsb@proton.me">
+    <a href={`mailto:${EMAIL}`}>
       <Button variant="outline" size="icon" className={`${className || ""} p-[5px] opacity-70 hover:opacity-90 transition-opacity border-2`}>
         <Mail strokeWidth={1.75} />
       </Button>
@@ -54,7 +55,7 @@ interface TwitterButtonProps {
 
 export function TwitterButton({ className }: TwitterButtonProps) {
   return (
-    <a href="https://x.com/C41M50N" target="_blank">
+    <a href={TWITTER} target="_blank">
       <Button variant="outline" size="icon" className={`${className || ""} p-[5px] opacity-70 hover:opacity-90 transition-opacity border-2`}>
         <img src={twitterIMG.src} />
       </Button>
@@ -68,7 +69,7 @@ interface BlueskyButtonProps {
 
 export function BlueskyButton({ className }: BlueskyButtonProps) {
   return (
-    <a href="https://bsky.app/profile/cbuff.dev" target="_blank">
+    <a href={BLUESKY} target="_blank">
       <Button variant="outline" size="icon" className={`${className || ""} p-[5px] opacity-70 hover:opacity-90 transition-opacity border-2`}>
         <img src={blueskyIMG.src} />
       </Button>
@@ -112,13 +113,12 @@ export function AnimatedLinkButton(props: AnimatedLinkButtonProps) {
 
 interface LiveProjectButtonProps {
   href: string;
-  size?: ButtonProps["size"];
 }
 
-export function LiveProjectButton({ href, size }: LiveProjectButtonProps) {
+export function LiveProjectButton({ href }: LiveProjectButtonProps) {
   return (
     <a href={href} target="_blank">
-      <Button variant="outline" size={size || "sm"}>
+      <Button variant="link" className="px-3 py-0 h-8 rounded-md">
         <div className="w-3 h-3 bg-[#63b681] animate-pulse border-2 border-black rounded-full" />
         <span className="pl-2 tracking-wide">Live</span>
       </Button>
@@ -128,14 +128,13 @@ export function LiveProjectButton({ href, size }: LiveProjectButtonProps) {
 
 interface GitHubProjectButtonProps {
   href: string;
-  size?: ButtonProps["size"]
 }
 
-export function GitHubProjectButton({ href, size }: GitHubProjectButtonProps) {
+export function GitHubProjectButton({ href }: GitHubProjectButtonProps) {
   return (
     <a href={href} target="_blank">
-      <Button variant="outline" size={size || "sm"}>
-        <GitHubSVG className='w-5' />
+      <Button variant="link" className="px-3 py-0 h-8 rounded-md">
+        <GitHubSVG className='size-4' />
         <span className="pl-2 tracking-wide">GitHub</span>
       </Button>
     </a>

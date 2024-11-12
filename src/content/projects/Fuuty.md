@@ -2,9 +2,15 @@
 title: Fuuty.gg
 description: >
   A next-gen soccer knowledge gaming platform.
+thumbnailImage: /src/assets/default-thumbnail.jpg
 images:
  - /assets/fuuty/landing.png
  - /assets/fuuty/game.png
+techstack:
+ - nextjs
+ - typescript
+ - tailwind
+ - aws
 ---
 
 ## Product Description

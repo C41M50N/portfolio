@@ -1,32 +1,32 @@
 ---
 import { getCollection } from "astro:content";
-import BackLayout from "@/layouts/BackLayout.astro";
-import { GitHubProjectButton, LiveProjectButton } from "@/components/projects/buttons";
+import Layout from "@/layouts/Layout.astro";
+import { Separator } from "@/components/ui/separator";
+import { ProjectCard } from "@/components/projects/project-card";
 
-const allProjects = await getCollection("projects");
+const allProjects = (await getCollection("projects"))
+  .filter((proj) => !proj.data.hidden)
+  .sort((p1, p2) => p1.data.priority - p2.data.priority)
+  .reverse();
 ---
 
-<BackLayout title="Charles Buffington's Projects">
-  <div class="md:w-[672px] flex flex-col gap-4">
-    {allProjects.map((project) => (
-      <div class="border border-[#363636] bg-[#101010] rounded-sm py-6 px-10 w-full">
-        <div>
-          <a href={`/project/${project.slug}`}>
-            <h2 class="text-white/80 text-2xl decoration-white/40 underline underline-offset-4 hover:decoration-white/65 decoration-2">
-              {project.data.title}
-            </h2>
-          </a>
-          <div class="py-1" />
-          <p class="text-white/50">
-            {project.data.description}
-          </p>
-        </div>
-        <div class="py-2" />
-        <div class="flex flex-row gap-4">
-          {project.data.live && <LiveProjectButton href={project.data.live} />}
-          {project.data.github && <GitHubProjectButton href={project.data.github} />}
-        </div>
-      </div>
-    ))}
+<Layout title="Charles Buffington's Projects">
+  <div class="w-full max-w-2xl pt-6 px-4 flex flex-col space-y-4">
+    <section class="pt-1.5 flex flex-col space-y-1">
+      <h3 class="text-3xl font-bold">
+        My Projects
+      </h3>
+      <span class="text-muted-foreground">
+        Some of the projects I've worked on over the years
+      </span>
+    </section>
+
+    <Separator />
+
+    <div class="flex flex-col gap-4">
+      {allProjects.map((project) => (
+        <ProjectCard project={project} />
+      ))}
+    </div>
   </div>
-</BackLayout>
+</Layout>
