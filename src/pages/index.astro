@@ -1,33 +1,82 @@
 ---
 import { getCollection } from 'astro:content';
-import { CalendarDays, DraftingCompass, Layers, Palette, Zap } from 'lucide-react';
-import dayjs from 'dayjs';
 import Layout from '@/layouts/Layout.astro';
 import portraitImg from '@/assets/portrait.png';
-import { GitHubSVG } from '@/components/svgs';
+import { AnimatedLinkButton, BlueskyButton, GitHubButton, LinkedInButton, MailButton, TwitterButton } from '@/components/projects/buttons';
+import FeaturedProjectCard from '@/components/projects/featured-project-card';
+import ServiceCard from '@/components/service-card';
 import { Button } from '@/components/ui/button';
-import { AnimatedLinkButton, GitHubButton, GitHubProjectButton, LinkedInButton, LiveProjectButton, MailButton } from '@/components/buttons';
-import { Badge } from '@/components/ui/badge';
+import { EMAIL } from '@/lib/data';
 
-const featuredProjects = await getCollection("projects", (project) => project.data.isFeatured)
-const featuredBlogPosts = await getCollection("blogs", (post) => post.data.isFeatured)
+const featuredProjects = await getCollection("projects", (project) => project.data.isFeatured);
+
+const services: Service[] = [
+	{
+		title: "MVP Development",
+		description: "Turn your concept into a working product quickly and efficiently.",
+		image: "/src/assets/service-thumbnails/mvp-development-thumbnail.jpg",
+		details: [
+			"Build a proof-of-concept to validate your idea",
+			"Develop a minimum viable product for market testing",
+			"Create scalable solutions that can grow with your business",
+			"Implement secure, performant applications with best practices",
+		],
+		calLink: "https://cal.com/cbuffington/mvp-development"
+	},
+	{
+		title: "Engineering Consultation",
+		description: "Leverage my experience as a Software Engineering Architect to solve complex technical challenges.",
+		image: "/src/assets/service-thumbnails/engineering-consulting-thumbnail.jpg",
+		details: [
+			"Technical architecture planning and review",
+			"Performance optimization and scalability solutions",
+			"Cloud infrastructure design (AWS, GCP, Digital Ocean)",
+			"Development process optimization",
+			"Technology stack evaluation and recommendations",
+			// "Security assessment and implementation",
+		],
+		calLink: "https://cal.com/cbuffington/engineering-consultation"
+	},
+	{
+		title: "Full-Time Engineering",
+		description: "Looking to strengthen your engineering team?",
+		image: "/src/assets/service-thumbnails/fulltime-engineering-thumbnail.jpg",
+		details: [
+			"Full-stack web development",
+			"API design and implementation",
+			"Leadership and technical documentation",
+			"Cloud infrastructure and DevOps",
+			// "Microservices architecture",
+			"Open to full-time and contract positions",
+		],
+		calLink: "https://cal.com/cbuffington/new-engineering-role"
+	}
+]
 ---
 
 <Layout title="Charles Buffington">
 	<!-- HEADLINE -->
 	<section id="about" class="relative flex flex-col-reverse lg:flex-row items-center px-2">
 		<article class="max-w-[600px] lg:pt-20 flex flex-col justify-center items-center lg:items-start gap-3">
-			<div class="flex flex-col justify-center items-center lg:items-start pt-5 lg:pt-6">
-				<h1 class="text-2xl lg:text-5xl font-bold bg-clip-text">Charles F.S. Buffington II</h1>
-				<h2 class="text-white/80 text-sm lg:text-xl">Software Engineer, Productivity enthusiast.</h2>
+			<div class="flex flex-col justify-center items-center gap-0.5 lg:items-start pt-5 lg:pt-6">
+				<h1 class="text-2xl lg:text-[40px] lg:leading-10 font-merriweather font-bold bg-clip-text">Charles Buffington II</h1>
+				<h2 class="text-white/80 text-sm lg:text-xl">Software Engineer, Follower of Christ.</h2>
 			</div>
 			<p class="text-md text-white/60 text-center lg:text-start text-sm lg:text-base">
-				I craft software solutions to companies' toughest problems by designing for security and scale and building fast with best practices.
+				I craft elegant, robust software solutions that drive business success.
+				<br>
+				I'm interested in software design, productivity science, and robotics.
+				<br>
+				Currently based in <a href="https://maps.app.goo.gl/HGJqpsgaUhTTWXMT6" target="_blank" class="underline hover:text-white/90">Michigan, USA</a>.
+				Open to relocation 👀.
 			</p>
+			<!-- TODO: Tech Stack -->
 			<nav class="flex flex-row gap-3">
-				<LinkedInButton />
-				<GitHubButton />
-				<MailButton />
+				<GitHubButton className="size-9" />
+				<LinkedInButton className="size-9" />
+				<TwitterButton className="size-9" />
+				<BlueskyButton className="size-9" />
+				<MailButton className="size-9" />
 
 				<div></div>
 
@@ -35,87 +84,30 @@ const featuredBlogPosts = await getCollection("blogs", (post) => post.data.isFea
 			</nav>
 		</article>
 
-		<aside class="relative h-[400px] lg:h-[600px] overflow-visible rounded-full">
+		<aside class="relative h-[330px] lg:h-[600px] overflow-visible rounded-full">
 			<div class="backdrop-blur absolute bottom-44 right-1 bg-transparent -z-10 rounded-full"></div>
-			<div class="relative w-[300px] h-[450px] flex flex-wrap rotate-2 select-none pointer-events-none gap-0">
-				<div class="hidden lg:block absolute z-10" style="opacity: 1; transform: translateX(50px) translateY(220px) translateZ(0px);">
-					<img src={portraitImg.src} alt="" class="rounded-lg">
+			<div class="relative w-[300px] h-[450px] flex flex-wrap select-none pointer-events-none gap-0">
+				<div class="hidden lg:block absolute z-10" style="opacity: 1; transform: translateX(50px) translateY(190px) translateZ(0px);">
+					<img src={portraitImg.src} alt="portrait of Charles Buffington" class="rounded-lg rotate-2">
+				</div>
+				<div class="block lg:hidden absolute z-10" style="transform: translateY(50px);">
+					<img src={portraitImg.src} alt="portrait of Charles Buffington" class="scale-75 rounded-lg">
 				</div>
 			</div>
 		</aside>
 	</section>
-	
-	<!-- FEATURED BLOG POSTS -->
-	<section id="posts" class="py-10 pt-24 flex flex-col items-center justify-center">
-		<div class="flex flex-col gap-3 px-4 text-center sm:px-0">
-			<h1 class="text-2xl md:text-3xl lg:text-4xl font-bold bg-clip-text">Blog Posts</h1>
-			<span class="text-white/50 italic">"Write. Rewrite. When not writing or rewriting, read. I know of no shortcuts."<span class="not-italic"> &boxh; Larry King</span></span>
-		</div>
-
-		<div class="min-h-52 w-full max-w-7xl grid gap-4 md:grid-cols-2 pt-10 pb-6 px-8">
-			{featuredBlogPosts.map((post) => (
-				<div class="md:min-w-[480px] bg-[#161616] border border-[#222222] rounded-lg md:flex md:flex-col md:flex-1 p-8 sm:p-10 lg:py-8 lg:pr-10 lg:pb-6 lg:px-8">
-					<div class="flex flex-col items-start">
-						<a href={`/blog/${post.slug}`}>
-							<h2 class="text-2xl text-white/95 font-semibold pb-1 hover:underline underline-offset-2">
-								{post.data.title}
-							</h2>
-						</a>
-						<p class="text-white/70">
-							{post.data.subtitle}
-						</p>
-					</div>
-
-					<div class="pt-4 flex flex-row items-center justify-between">
-						<div class="flex flex-row items-center gap-1 text-white/50">
-							<CalendarDays strokeWidth={1.75} className='h-[18px]' />
-							<p class="pr-2">
-								{dayjs(post.data.date).format("MMMM D, YYYY")}
-							</p>
-						</div>
-
-						<div class="flex flex-row gap-2">
-							{post.data.tags.map((tag) => (
-								<Badge variant="secondary">{`# ${tag}`}</Badge>
-							))}
-						</div>
-					</div>
-				</div>
-			))}
-		</div>
-
-		<AnimatedLinkButton label="All Blog Posts" href="/blog" />
-	</section>
 
 	<!-- FEATURED PROJECTS -->
-	<section id="projects" class="py-10 pt-24 flex flex-col items-center justify-center">
+	<section id="projects" class="pt-24 pb-32 flex flex-col items-center justify-center">
 		<div class="flex flex-col gap-3 px-4 text-center sm:px-1 sm:pt-10">
-			<h1 class="text-2xl md:text-3xl lg:text-4xl font-bold bg-clip-text">My Projects</h1>
+			<h1 class="text-2xl md:text-3xl lg:text-4xl font-bold bg-clip-text">What I've Built 🛠️</h1>
 			<span class="text-white/50 italic">"The best way to learn is to build sh*t."<span class="not-italic"> &boxh; Theo Browne</span></span>
 		</div>
 
-		<div class="min-h-52 w-full max-w-7xl grid gap-4 md:grid-cols-2 pt-10 pb-6 px-8">
+		<div class="min-h-52 w-full max-w-7xl grid gap-8 md:grid-cols-2 pt-12 pb-6 px-8">
 			{featuredProjects.map((project) => (
-				<div class="md:min-w-[480px] bg-[#161616] border border-[#222222] rounded-lg md:flex md:flex-col md:flex-1 p-8 sm:p-10 lg:py-8 lg:pr-10 lg:pb-6 lg:px-8">
-					<a href={`/project/${project.slug}`}>
-						<h2 class="text-2xl text-white/95 font-semibold pb-1 hover:underline underline-offset-2">
-							{project.data.title}
-						</h2>
-					</a>
-					<p class="text-white/50 pr-2">
-						{project.data.description}
-					</p>
-
-					<div class="pt-5 flex flex-row items-center justify-between">
-						<div class="flex flex-row gap-4">
-							{project.data.live && (
-								<LiveProjectButton href={project.data.live} />
-							)}
-							{project.data.github && (
-								<GitHubProjectButton href={project.data.github} />
-							)}
-						</div>
-					</div>
+				<div class="max-w-lg">
+					<FeaturedProjectCard project={project} />
 				</div>
 			))}
 		</div>
@@ -123,48 +115,28 @@ const featuredBlogPosts = await getCollection("blogs", (post) => post.data.isFea
 		<AnimatedLinkButton label="See All Projects" href="/projects" />
 	</section>
 
-	<!-- SERVICES -->
+	<!-- MY SERVICES -->
 	<section id="services" class="py-24 flex flex-col items-center justify-center">
-		<div class="flex flex-col gap-3 px-4 text-center sm:px-0">
-			<h1 class="text-2xl md:text-3xl lg:text-4xl font-bold bg-clip-text">Crafting Digital Experiences</h1>
-			<span class="text-white/50">Here are all of the ways that I can help YOU.</span>
-		</div>
+		<div class="container mx-auto px-4">
+			<h2 class="text-2xl md:text-3xl lg:text-4xl font-bold text-center mb-3 text-white">My Services</h2>
+			<p class="text-center text-white/50 mb-12 max-w-2xl mx-auto">
+				Here are all of the ways that I can help YOU.
+			</p>
 
-		<div class="min-h-52 w-full max-w-7xl grid gap-4 md:grid-cols-2 pt-10 px-8">
-			<div class="md:flex flex-col flex-1 p-8 sm:p-10 lg:py-16 lg:pl-16 lg:pr-32 border border-[#222222] rounded-lg">
-				<div class="flex flex-row space-x-2 pb-1">
-					<Layers strokeWidth={1.5} />
-					<h2 class="text-xl font-semibold">System Design</h2>
-				</div>
-
-				<p class="text-white/50">I architect software solutions to problems at any scale.</p>
+			<div class="max-w-lg md:max-w-full grid grid-cols-1 lg:grid-cols-3 gap-8 px-4">
+				{services.map((service) => (
+					<ServiceCard service={service} />
+				))}
 			</div>
 
-			<div class="md:flex flex-col flex-1 p-8 sm:p-10 lg:py-16 lg:pl-16 lg:pr-32 border border-[#222222] rounded-lg">
-				<div class="flex flex-row space-x-2 pb-1">
-					<DraftingCompass strokeWidth={1.5} />
-					<h2 class="text-xl font-semibold">Craft Web Apps</h2>
-				</div>
+			<div class="text-center mt-12">
+				<p class="text-base font-semibold mb-4 text-white/50">Ready to discuss your project?</p>
 
-				<p class="text-white/50">I craft exceptional web applications that not only function performantly but are also visually appealing.</p>
-			</div>
-
-			<div class="md:flex flex-col flex-1 p-8 sm:p-10 lg:py-16 lg:pl-16 lg:pr-32 border border-[#222222] rounded-lg">
-				<div class="flex flex-row space-x-2 pb-1">
-					<Palette strokeWidth={1.5} />
-					<h2 class="text-xl font-semibold">Design User Interfaces</h2>
-				</div>
-
-				<p class="text-white/50">I design functional, intuitive user interfaces for clients' most complex problems.</p>
-			</div>
-
-			<div class="md:flex flex-col flex-1 p-8 sm:p-10 lg:py-16 lg:pl-16 lg:pr-32 border border-[#222222] rounded-lg">
-				<div class="flex flex-row space-x-2 pb-1">
-					<Zap strokeWidth={1.5} />
-					<h2 class="text-xl font-semibold">Code Optimization</h2>
-				</div>
-
-				<p class="text-white/50">I reduce latency and enhance performance by identifying and eliminating bottlenecks.</p>
+				<a href={`mailto:${EMAIL}`}>
+					<Button variant="default" size="lg" className="px-6 py-6 font-medium text-base rounded-md">
+						Contact me
+					</Button>
+				</a>
 			</div>
 		</div>
 	</section>

@@ -6,3 +6,11 @@ type NavItem = {
 	label: string;
 	href: string;
 }
+
+type Service = {
+  title: string;
+  description: string;
+  image: string;
+  details: string[];
+  calLink: string;
+}

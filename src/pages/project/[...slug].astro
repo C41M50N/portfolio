@@ -2,9 +2,12 @@
 import type { GetStaticPaths } from "astro";
 import { getCollection } from "astro:content";
 import Layout from "@/layouts/Layout.astro";
-import { GitHubProjectButton, LiveProjectButton } from "@/components/buttons";
+import { GitHubProjectButton, LiveProjectButton } from "@/components/projects/buttons";
 import { Separator } from "@/components/ui/separator"
 import { ProjectImagesCarousel } from "@/components/project-images-carousel";
+import defaultThumbnailImg from "@/assets/default-thumbnail.jpg";
+import { TechBadge } from "@/components/projects/tech-badge";
+import { TechCatalog } from "@/lib/data";
 
 export const getStaticPaths = ( async () => {
   const projectEntries = await getCollection('projects');
@@ -19,23 +22,45 @@ const { Content } = await entry.render();
 ---
 
 <Layout title={`${entry.data.title} | Buffington's Projects`}>
-  <div class="max-w-3xl w-full flex flex-col gap-4">
-    <div class="pt-10 col-span-1 space-y-2">
-      <h1 class="text-4xl font-semibold tracking-wide">{entry.data.title}</h1>
-      <p class="text-base text-[#d3d3d4]">{entry.data.description}</p>
-      <div class="pt-2 flex flex-row gap-4">
-        {entry.data.live && <LiveProjectButton href={entry.data.live} />}
-        {entry.data.github && <GitHubProjectButton href={entry.data.github} />}
+  <div class="max-w-3xl w-full px-10 flex flex-col gap-4">
+    <div class="pt-10 flex flex-row items-center space-x-10">
+      <div class="max-w-72">
+        <img
+          class="rounded-sm"
+          src={entry.data.thumbnailImage ?? defaultThumbnailImg.src}
+        />
+      </div>
+
+      <div class="space-y-1">
+        <h1 class="text-3xl font-semibold tracking-wide">{entry.data.title}</h1>
+        <p class="text-base text-[#d3d3d4]">{entry.data.description}</p>
+        <div class="pt-2 flex flex-row gap-3">
+          {entry.data.live && <LiveProjectButton href={entry.data.live} />}
+          {entry.data.github && <GitHubProjectButton href={entry.data.github} />}
+        </div>
       </div>
     </div>
     
-    <Separator className="bg-gray-500 mt-2 mb-4" />
+    <div class="pt-2 flex flex-row items-center gap-2">
+      <span class="text-base font-semibold">
+        Tech Stack:
+      </span>
+      <div class="flex flex-row flex-wrap gap-x-2 gap-y-1">
+        {entry.data.techstack.map((tech) => (
+          <TechBadge data={TechCatalog[tech]} active />
+        ))}
+      </div>
+    </div>
+
+    <Separator className="bg-zinc-800 mt-2 mb-2" />
     
-    {entry.data.images && <ProjectImagesCarousel client:load image_srcs={entry.data.images} />}
+    {entry.data.images && (
+      <div class="pb-4 px-10">
+        <ProjectImagesCarousel client:load image_srcs={entry.data.images} />
+      </div>
+    )}
 
-    <div class="h-6"></div>
-
-    <div class="prose dark:prose-invert prose-p:text-[#d3d3d4] prose-h2:leading-[0]">
+    <div class="pt-4 prose dark:prose-invert prose-p:text-[#d3d3d4] prose-h2:leading-[0]">
       <Content />
     </div>
   </div>

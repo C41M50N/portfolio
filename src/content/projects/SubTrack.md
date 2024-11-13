@@ -5,8 +5,17 @@ description: >
 live: https://subtrack.cbuff.dev
 github: https://github.com/C41M50N/SubTrack
 isFeatured: true
+thumbnailImage: /src/assets/subtrack/subtrack-thumbnail.jpg
 images:
   - /assets/subtrack/dashboard.png
+techstack:
+  - nextjs
+  - typescript
+  - trpc
+  - postgres
+  - tailwind
+  - vercel
+priority: 9
 ---
 
 ## Product Description
