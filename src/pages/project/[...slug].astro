@@ -47,7 +47,7 @@ const { Content } = await entry.render();
       </span>
       <div class="flex flex-row flex-wrap gap-x-2 gap-y-1">
         {entry.data.techstack.map((tech) => (
-          <TechBadge data={TechCatalog[tech]} />
+          <TechBadge data={TechCatalog[tech]} active />
         ))}
       </div>
     </div>
@@ -55,7 +55,7 @@ const { Content } = await entry.render();
     <Separator className="bg-zinc-800 mt-2 mb-2" />
     
     {entry.data.images && (
-      <div class="pb-4">
+      <div class="pb-4 px-10">
         <ProjectImagesCarousel client:load image_srcs={entry.data.images} />
       </div>
     )}
