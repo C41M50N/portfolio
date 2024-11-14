@@ -1,23 +1,3 @@
----
-title: SubTrack
-description: >
-  An intuitive subscriptions tracking utility.
-live: https://subtrack.cbuff.dev
-github: https://github.com/C41M50N/SubTrack
-isFeatured: true
-thumbnailImage: /src/assets/subtrack/subtrack-thumbnail.jpg
-images:
-  - /assets/subtrack/dashboard.png
-techstack:
-  - nextjs
-  - typescript
-  - trpc
-  - postgres
-  - tailwind
-  - vercel
-priority: 9
----
-
 ## Product Description
 SubTrack is an intuitive subscriptions tracking utility. The goal of SubTrack is to facilitate a streamlined, non-invasive process of tracking your digital subscriptions. There is an optional integration with the Todoist platform that is used for creating cancel reminders for subscriptions.
 
@@ -78,3 +58,6 @@ model Subscription {
  */
 function _(): boolean
 ```
+
+### Screenshots
+![dashboard](/src/assets/subtrack/dashboard.png)

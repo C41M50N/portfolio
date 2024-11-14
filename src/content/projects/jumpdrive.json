@@ -1,0 +1,30 @@
+{
+  "id": "jumpdrive",
+  "title": "JumpDrive",
+  "description": "A temporary file and text sharing service.",
+  "thumbnailImage": "/src/assets/jumpdrive/jumpdrive-thumbnail.jpg",
+  "live": "https://jumpdrive.app",
+  "featured": true,
+  "priority": 10,
+  "techstack": [
+    "nextjs",
+    "typescript",
+    "trpc",
+    "postgres",
+    "tailwind"
+  ],
+  "documents": [
+    {
+      "title": "README",
+      "path": "/src/content/project-documents/jumpdrive/README.md"
+    },
+    {
+      "title": "Product Design",
+      "path": "/src/content/project-documents/jumpdrive/product-design.md"
+    },
+    {
+      "title": "System Design",
+      "path": "/src/content/project-documents/jumpdrive/system-design.md"
+    }
+  ]
+}

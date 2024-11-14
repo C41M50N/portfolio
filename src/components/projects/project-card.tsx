@@ -10,7 +10,7 @@ type Props = {
 export function ProjectCard({ project }: Props) {
   return (
     <div className="group relative w-full flex flex-row items-stretch gap-6 bg-[#161616] hover:bg-[#1F1F1F] border border-zinc-900 hover:border-zinc-800 rounded-lg shadow-xl hover:cursor-pointer transition-colors duration-300">
-      <a href={`/project/${project.slug}`} className="absolute inset-0 z-10">
+      <a href={`/project/${project.data.id}`} className="absolute inset-0 z-10">
         <span className="sr-only">View project: {project.data.title}</span>
       </a>
 
@@ -33,7 +33,7 @@ export function ProjectCard({ project }: Props) {
         </span>
         <div className="pt-2 flex flex-row flex-wrap gap-x-2 gap-y-1">
           {project.data.techstack.slice(0,4).map((tech) => (
-            <TechBadge data={TechCatalog[tech]} />
+            <TechBadge key={tech} data={TechCatalog[tech]} />
           ))}
         </div>
       </div>

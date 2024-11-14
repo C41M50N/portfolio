@@ -8,7 +8,9 @@ import ServiceCard from '@/components/service-card';
 import { Button } from '@/components/ui/button';
 import { EMAIL } from '@/lib/data';
 
-const featuredProjects = await getCollection("projects", (project) => project.data.isFeatured);
+const featuredProjects = (await getCollection("projects", (project) => project.data.featured))
+	.sort((p1, p2) => p1.data.priority - p2.data.priority)
+	.reverse();
 
 const services: Service[] = [
 	{
