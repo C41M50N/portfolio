@@ -1,0 +1,16 @@
+{
+  "id": "lenny",
+  "title": "Lenny Trading Bot",
+  "description": "...",
+  "thumbnailImage": "/src/assets/default-thumbnail.jpg",
+  "hidden": true,
+  "techstack": [
+    "nextjs"
+  ],
+  "documents": [
+    {
+      "title": "README",
+      "path": "/src/content/project-documents/lenny/README.md"
+    }
+  ]
+}

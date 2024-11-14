@@ -1,0 +1,24 @@
+{
+  "id": "subtrack",
+  "title": "SubTrack",
+  "description": "An intuitive subscriptions tracking utility.",
+  "thumbnailImage": "/src/assets/subtrack/subtrack-thumbnail.jpg",
+  "live": "https://subtrack.cbuff.dev",
+  "github": "https://github.com/C41M50N/SubTrack",
+  "featured": true,
+  "priority": 9,
+  "techstack": [
+    "nextjs",
+    "typescript",
+    "trpc",
+    "postgres",
+    "tailwind",
+    "vercel"
+  ],
+  "documents": [
+    {
+      "title": "README",
+      "path": "/src/content/project-documents/subtrack/README.md"
+    }
+  ]
+}

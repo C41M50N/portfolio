@@ -1,0 +1,19 @@
+{
+  "id": "fuuty",
+  "title": "Fuuty.gg",
+  "description": "A next-gen soccer knowledge gaming platform.",
+  "thumbnailImage": "/src/assets/default-thumbnail.jpg",
+  "featured": true,
+  "techstack": [
+    "nextjs",
+    "typescript",
+    "tailwind",
+    "aws"
+  ],
+  "documents": [
+    {
+      "title": "README",
+      "path": "/src/content/project-documents/fuuty/README.md"
+    }
+  ]
+}

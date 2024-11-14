@@ -4,8 +4,7 @@ import Layout from "@/layouts/Layout.astro";
 import { Separator } from "@/components/ui/separator";
 import { ProjectCard } from "@/components/projects/project-card";
 
-const allProjects = (await getCollection("projects"))
-  .filter((proj) => !proj.data.hidden)
+const allProjects = (await getCollection("projects", (project) => !project.data.hidden))
   .sort((p1, p2) => p1.data.priority - p2.data.priority)
   .reverse();
 ---
