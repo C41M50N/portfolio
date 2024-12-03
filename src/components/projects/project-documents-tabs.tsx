@@ -13,12 +13,12 @@ type Props = {
 export function ProjectDocumentsTabs({ documents }: Props) {
   return (
     <Tabs defaultValue={documents.at(0)?.title}>
-      <TabsList className="bg-zinc-800/50 rounded-t-lg rounded-b-none">
+      <TabsList className="px-0.5 bg-zinc-800/50 rounded-t-lg rounded-b-none">
         {documents.map((doc) => (
           <TabsTrigger
             key={doc.title} 
             value={doc.title}
-            className="text-base"
+            className="text-base px-4"
           >
             {doc.title}
           </TabsTrigger>
@@ -27,7 +27,7 @@ export function ProjectDocumentsTabs({ documents }: Props) {
       <Separator orientation="horizontal" />
       {documents.map((doc) => (
         <TabsContent key={doc.title} value={doc.title}>
-          <div className="prose dark:prose-invert prose-p:text-[#d3d3d4] prose-h2:leading-[0]">
+          <div className="prose prose-zinc dark:prose-invert prose-p:text-[#d3d3d4] prose-h2:leading-[0] prose-h3:mt-5 prose-h3:mb-2 prose-ul:pl-5 prose-ul:mb-0 prose-ul:mt-0 prose-li:pl-0.5 prose-li:my-1">
             <div dangerouslySetInnerHTML={{ __html: doc.content }} />
           </div>
         </TabsContent>

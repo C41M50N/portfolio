@@ -14,6 +14,10 @@
     {
       "title": "README",
       "path": "/src/content/project-documents/fuuty/README.md"
+    },
+    {
+      "title": "System Design",
+      "path": "/src/content/project-documents/fuuty/system-design.md"
     }
   ]
 }

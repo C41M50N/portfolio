@@ -1,13 +1,13 @@
 ---
 import type { GetStaticPaths } from "astro";
 import { getCollection } from "astro:content";
+import { experimental_AstroContainer as AstroContainer } from 'astro/container';
+import { TechCatalog } from "@/lib/data";
 import Layout from "@/layouts/Layout.astro";
-import { GitHubProjectButton, LiveProjectButton } from "@/components/projects/buttons";
 import defaultThumbnailImg from "@/assets/default-thumbnail.jpg";
 import { TechBadge } from "@/components/projects/tech-badge";
-import { TechCatalog } from "@/lib/data";
 import { ProjectDocumentsTabs } from "@/components/projects/project-documents-tabs";
-import { experimental_AstroContainer as AstroContainer } from 'astro/container';
+import { GitHubProjectButton, LiveProjectButton } from "@/components/projects/buttons";
 
 export const getStaticPaths = ( async () => {
   const projectEntries = await getCollection('projects');
@@ -38,9 +38,9 @@ for (const documentRef of entry.data.documents) {
 ---
 
 <Layout title={`${entry.data.title} | Buffington's Projects`}>
-  <div class="max-w-3xl w-full px-10 flex flex-col gap-4">
+  <div class="max-w-4xl w-full px-10 flex flex-col gap-4">
     <div class="pt-10 flex flex-row items-center space-x-10">
-      <div class="max-w-72">
+      <div class="max-w-64 md:max-w-80">
         <img
           class="rounded-sm"
           src={entry.data.thumbnailImage ?? defaultThumbnailImg.src}

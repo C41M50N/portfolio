@@ -1,45 +1,18 @@
-## Product Description
-Fuuty.gg is a next-gen soccer knowledge games platform. Fuuty hosts a variety of games.
 
-## Technical Description
-Fuuty.gg is a web based system that consists of a web server, cache, and CDN. It is designed to support tens-of-thousands of concurrent users. All requests between the client and server happen via tRPC.
+## Overview
+Fuuty.gg is a next-generation soccer knowledge gaming platform that challenges players' understanding of professional soccer career paths. Through an innovative matching game format, players test their knowledge by identifying athletes who have played for specific combinations of clubs.
 
-## Features
-- Single and Multi-player Gameplay.
-- Thousands of players. Tens of the most popular clubs.
-- Hundreds of game boards.
+## Core Features
+- **Single Player Mode**: Test your soccer knowledge at your own pace
+- **Multiplayer Gameplay**: Compete against other players in real-time matches
+- **Extensive Database**: Access to:
+    - Thousands of professional players with verified career histories
+    - Premium soccer clubs from top leagues worldwide
+    - Carefully curated game boards of varying difficulties
+- **Smart Search System**: Intelligent player search with name variations and fuzzy matching
+- **Difficulty Progression**: Three distinct difficulty levels (Easy, Medium, Hard) for varied challenge
+- **Real-time Validation**: Instant verification of player-club relationship answers
 
-## System Design
-### System Components
-- Web Server ([Next.js](https://nextjs.org/)) for serving HTML to clients and hosting tRPC endpoints
-- LRU Cache ([Redis](https://redis.io/)) for storing responses to game-related requests (searching, guessing, etc.)
-- CDN based on storage bucket ([AWS S3](https://aws.amazon.com/s3/)) for serving player and club images
-
-### tRPC Endpoints
-```typescript
-/**
- ** checks if the given player has played for all given clubs
- * @param {string[]}  club_ids - array of club ids
- * @param {string}    player_id - id of player guess
- * @returns {boolean} returns true if the given player belongs to both clubs, false otherwise
- */
-function checkGuess(club_ids: string[], player_id: string): boolean
-```
-
-```typescript
-/**
- ** gets a random board based on the difficulty
- * @param {Difficulty} difficulty - board difficulty
- * @returns {Board} returns board data
- */
-function getBoard(difficulty: Difficulty): Board
-```
-
-```typescript
-/**
- ** gets a list of players whose name contains the search term
- * @param {string} searchTerm - search term
- * @returns {Player[]} returns list of players
- */
-function searchPlayers(searchTerm: string): Player[]
-```
+## Screenshots
+![landing](/src/assets/fuuty/landing.png)
+![game](/src/assets/fuuty/game.png)
