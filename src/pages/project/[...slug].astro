@@ -17,11 +17,11 @@ export const getStaticPaths = ( async () => {
   }))
 }) satisfies GetStaticPaths;
 
-const allProjectDocuments = await Astro.glob(`../../content/project-documents/**/*.md`);
+const allProjectDocuments = await Astro.glob("../../content/project-documents/**/*.md");
 
 const { entry } = Astro.props;
 
-let documents: Array<{ title: string; content: string }> = [];
+const documents: Array<{ title: string; content: string }> = [];
 const container = await AstroContainer.create();
 for (const documentRef of entry.data.documents) {
   const document = allProjectDocuments.find(
