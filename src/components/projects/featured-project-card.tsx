@@ -32,7 +32,7 @@ export default function FeaturedProjectCard({ project }: Props) {
 
         <div className="pt-2 flex flex-row gap-x-2">
           {project.data.techstack.slice(0,4).map((tech) => (
-            <TechBadge data={TechCatalog[tech]} />
+            <TechBadge key={tech} data={TechCatalog[tech]} />
           ))}
         </div>
 
