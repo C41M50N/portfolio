@@ -1,11 +1,16 @@
 {
   "id": "lenny",
   "title": "Lenny Trading Bot",
-  "description": "...",
-  "thumbnailImage": "/src/assets/default-thumbnail.jpg",
-  "hidden": true,
+  "description": "Your AI Trading Assistant",
+  "thumbnailImage": "/src/assets/lenny/lenny-thumbnail.jpg",
+  "github": "https://github.com/Lenny-Bucks-A-Plenty/lenny-web",
+  "featured": true,
+  "priority": 8,
   "techstack": [
-    "nextjs"
+    "nextjs",
+    "typescript",
+    "python",
+    "tailwind"
   ],
   "documents": [
     {

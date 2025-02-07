@@ -1,4 +1,5 @@
 ---
+import { Analytics } from "@vercel/analytics/react"
 import { ViewTransitions } from 'astro:transitions';
 import dayjs from "dayjs";
 import "@fontsource/inter";
@@ -60,6 +61,7 @@ const navItems: NavLinkProps[] = [
 		<meta name="generator" content={Astro.generator} />
 		<title>{title}</title>
 		<ViewTransitions />
+		<Analytics />
 	</head>
 	<body
 		class="dark min-h-screen antialiased flex flex-col items-center justify-start overscroll-y-none"

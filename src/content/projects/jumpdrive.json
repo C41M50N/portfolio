@@ -4,7 +4,7 @@
   "description": "A temporary file and text sharing service.",
   "thumbnailImage": "/src/assets/jumpdrive/jumpdrive-thumbnail.jpg",
   "live": "https://jumpdrive.app",
-  "featured": true,
+  "hidden": true,
   "priority": 10,
   "techstack": [
     "nextjs",

@@ -11,5 +11,7 @@ SubTrack is a subscription management tool that helps you take control of your r
 - **Cancel Reminders**: Create reminders to cancel subscriptions with Google Calendar
 - **Export Your Data**: Export your subscriptions to a CSV file
 
-## Screenshots
-![dashboard](/src/assets/subtrack/dashboard.png)
+## Demo Video
+<video controls>
+  <source src="/subtrack-demo.mov" type="video/mp4">
+</video>

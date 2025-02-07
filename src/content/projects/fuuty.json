@@ -3,7 +3,7 @@
   "title": "Fuuty.gg",
   "description": "A next-gen soccer knowledge gaming platform.",
   "thumbnailImage": "/src/assets/default-thumbnail.jpg",
-  "featured": true,
+  "hidden": true,
   "techstack": [
     "nextjs",
     "typescript",

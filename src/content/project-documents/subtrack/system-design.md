@@ -1,6 +1,6 @@
 
-## Technical Architecture
-TODO: COMING SOON
+<!-- ## Technical Architecture
+TODO: COMING SOON -->
 
 ## Data Models
 ```typescript

@@ -2,9 +2,8 @@
   "id": "redis-server-lite",
   "title": "Redis Server Lite",
   "description": "A Redis server implementation written in Golang.",
-  "thumbnailImage": "/src/assets/default-thumbnail.jpg",
+  "thumbnailImage": "/src/assets/wip.avif",
   "github": "https://github.com/C41M50N/Redis-Server-Lite",
-  "featured": true,
   "techstack": [
     "golang"
   ],
