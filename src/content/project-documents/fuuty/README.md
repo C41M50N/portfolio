@@ -14,5 +14,5 @@ Fuuty.gg is a next-generation soccer knowledge gaming platform that challenges p
 - **Real-time Validation**: Instant verification of player-club relationship answers
 
 ## Screenshots
-![landing](/src/assets/fuuty/landing.png)
-![game](/src/assets/fuuty/game.png)
+![landing](/assets/fuuty/landing.png)
+![game](/assets/fuuty/game.png)
