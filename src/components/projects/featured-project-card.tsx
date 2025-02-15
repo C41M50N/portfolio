@@ -17,7 +17,7 @@ export default function FeaturedProjectCard({ project }: Props) {
         <span className="sr-only">View project: {project.data.title}</span>
       </a>
 
-      <div className="relative h-56 w-full rounded-t-lg overflow-hidden">
+      <div className="relative h-40 sm:h-56 w-full rounded-t-lg overflow-hidden">
         <img src={project.data.thumbnailImage ?? defaultThumbnailImg.src} className="transition-all duration-300 filter grayscale group-hover:filter-none" />
       </div>
 
@@ -30,8 +30,14 @@ export default function FeaturedProjectCard({ project }: Props) {
           {project.data.description}
         </span>
 
-        <div className="pt-2 flex flex-row gap-x-2">
+        <div className="hidden sm:flex pt-2 flex-row gap-x-2">
           {project.data.techstack.slice(0,4).map((tech) => (
+            <TechBadge key={tech} data={TechCatalog[tech]} />
+          ))}
+        </div>
+
+        <div className="flex sm:hidden pt-2 flex-row gap-x-3">
+          {project.data.techstack.slice(0,3).map((tech) => (
             <TechBadge key={tech} data={TechCatalog[tech]} />
           ))}
         </div>

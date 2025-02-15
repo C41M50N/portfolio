@@ -65,13 +65,18 @@ const services: Service[] = [
 				<h1 class="text-2xl lg:text-[40px] lg:leading-10 font-merriweather font-bold bg-clip-text">Charles Buffington II</h1>
 				<h2 class="text-white/80 text-sm lg:text-xl">Software Engineer, Follower of Christ.</h2>
 			</div>
-			<p class="text-md text-white/60 text-center lg:text-start text-sm lg:text-base">
+			<p class="hidden sm:block text-md text-white/60 text-center lg:text-start text-sm lg:text-base">
 				I craft elegant, robust software solutions that drive business success.
 				<br>
 				I'm interested in software design, productivity science, and robotics.
 				<br>
 				Currently based in <a href="https://maps.app.goo.gl/HGJqpsgaUhTTWXMT6" target="_blank" class="underline hover:text-white/90">Michigan, USA</a>.
 				Open to relocation 👀
+			</p>
+			<p class="block sm:hidden text-md text-white/60 text-center lg:text-start text-sm lg:text-base">
+				I craft elegant, robust software solutions that drive business success.
+				I'm interested in software design, productivity science, and robotics.
+				Currently based in <a href="https://maps.app.goo.gl/HGJqpsgaUhTTWXMT6" target="_blank" class="underline hover:text-white/90">Michigan, USA</a>.
 			</p>
 			<!-- TODO: Tech Stack -->
 			<nav class="flex flex-row gap-3">
@@ -107,7 +112,7 @@ const services: Service[] = [
 			<span class="text-white/50 italic">"The best way to learn is to build sh*t."<span class="not-italic"> &boxh; Theo Browne</span></span>
 		</div>
 
-		<div class="min-h-52 w-full max-w-7xl grid gap-8 md:grid-cols-2 pt-12 pb-6 px-8">
+		<div class="min-h-52 w-full max-w-7xl grid gap-8 md:grid-cols-2 pt-12 pb-6 px-3 sm:px-8">
 			{featuredProjects.map((project) => (
 				<div class="max-w-lg">
 					<FeaturedProjectCard project={project} />
@@ -119,20 +124,20 @@ const services: Service[] = [
 	</section>
 
 	<!-- MY SERVICES -->
-	<section id="services" class="py-24 flex flex-col items-center justify-center">
+	<section id="services" class="pt-0 pb-0 sm:pt-24 sm:pb-24 flex flex-col items-center justify-center">
 		<div class="container mx-auto px-4">
 			<h2 class="text-2xl md:text-3xl lg:text-4xl font-bold text-center mb-3 text-white">My Services 🦾</h2>
 			<p class="text-center text-white/50 mb-12 max-w-2xl mx-auto">
 				Here are all of the ways that I can help YOU.
 			</p>
 
-			<div class="max-w-lg md:max-w-full grid grid-cols-1 lg:grid-cols-3 gap-8 px-4">
+			<div class="max-w-lg md:max-w-full grid grid-cols-1 lg:grid-cols-3 gap-x-6 gap-8 px-1 sm:px-4">
 				{services.map((service) => (
 					<ServiceCard service={service} />
 				))}
 			</div>
 
-			<div class="text-center mt-12">
+			<div class="text-center pt-12 sm:pt-24">
 				<p class="text-base font-semibold mb-4 text-white/50">Ready to discuss your project?</p>
 
 				<a href={`mailto:${EMAIL}`}>
