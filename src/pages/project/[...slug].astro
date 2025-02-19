@@ -4,7 +4,6 @@ import { getCollection } from "astro:content";
 import { experimental_AstroContainer as AstroContainer } from 'astro/container';
 import { TechCatalog } from "@/lib/data";
 import Layout from "@/layouts/Layout.astro";
-import defaultThumbnailImg from "@/assets/default-thumbnail.jpg";
 import { TechBadge } from "@/components/projects/tech-badge";
 import { ProjectDocumentsTabs } from "@/components/projects/project-documents-tabs";
 import { GitHubProjectButton, LiveProjectButton } from "@/components/projects/buttons";
@@ -35,6 +34,8 @@ for (const documentRef of entry.data.documents) {
     content: documentHTML,
   })
 }
+
+export const prerender = true;
 ---
 
 <Layout title={`${entry.data.title} | Buffington's Projects`}>
@@ -43,7 +44,7 @@ for (const documentRef of entry.data.documents) {
       <div class="max-w-64 md:max-w-80">
         <img
           class="rounded-sm"
-          src={entry.data.thumbnailImage ?? defaultThumbnailImg.src}
+          src={entry.data.thumbnailImage ?? "/assets/default-thumbnail.jpg"}
         />
       </div>
 

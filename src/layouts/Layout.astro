@@ -1,6 +1,6 @@
 ---
-import { Analytics } from "@vercel/analytics/react"
-import { ViewTransitions } from 'astro:transitions';
+import Analytics from "@vercel/analytics/astro"
+import { ClientRouter } from 'astro:transitions';
 import dayjs from "dayjs";
 import "@fontsource/inter";
 import "@/styles/globals.css";
@@ -60,7 +60,7 @@ const navItems: NavLinkProps[] = [
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<meta name="generator" content={Astro.generator} />
 		<title>{title}</title>
-		<ViewTransitions />
+		<ClientRouter />
 	</head>
 	<body
 	class="dark min-h-screen antialiased flex flex-col items-center justify-start overscroll-y-none"

@@ -1,5 +1,4 @@
 import { type CollectionEntry } from "astro:content";
-import defaultThumbnailImg from "@/assets/default-thumbnail.jpg";
 import { TechBadge } from "./tech-badge";
 import { TechCatalog } from "@/lib/data";
 
@@ -18,7 +17,7 @@ export function ProjectCard({ project }: Props) {
         <object data={project.data.thumbnailImage} type="image/jpg" className="w-52 object-cover h-full transition-all duration-300 filter grayscale group-hover:filter-none">
           <img
             alt={`project "${project.data.title}" thumbnail`}
-            src={defaultThumbnailImg.src}
+            src={"/assets/default-thumbnail.jpg"}
             className="h-full transition-all duration-300 filter grayscale group-hover:filter-none"
           />
         </object>

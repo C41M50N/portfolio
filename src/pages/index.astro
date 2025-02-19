@@ -1,7 +1,6 @@
 ---
 import { getCollection } from 'astro:content';
 import Layout from '@/layouts/Layout.astro';
-import portraitImg from '@/assets/portrait.png';
 import { AnimatedLinkButton, BlueskyButton, GitHubButton, LinkedInButton, MailButton, TwitterButton } from '@/components/projects/buttons';
 import FeaturedProjectCard from '@/components/projects/featured-project-card';
 import ServiceCard from '@/components/service-card';
@@ -96,10 +95,10 @@ const services: Service[] = [
 			<div class="backdrop-blur absolute bottom-44 right-1 bg-transparent -z-10 rounded-full"></div>
 			<div class="relative w-[300px] h-[450px] flex flex-wrap select-none pointer-events-none gap-0">
 				<div class="hidden lg:block absolute z-10" style="opacity: 1; transform: translateX(50px) translateY(190px) translateZ(0px);">
-					<img src={portraitImg.src} alt="portrait of Charles Buffington" class="rounded-lg rotate-2">
+					<img src={"/assets/portrait.png"} alt="portrait of Charles Buffington" class="rounded-lg rotate-2">
 				</div>
 				<div class="block lg:hidden absolute z-10" style="transform: translateY(50px);">
-					<img src={portraitImg.src} alt="portrait of Charles Buffington" class="scale-75 rounded-lg">
+					<img src={"/assets/portrait.png"} alt="portrait of Charles Buffington" class="scale-75 rounded-lg">
 				</div>
 			</div>
 		</aside>
