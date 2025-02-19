@@ -1,5 +1,3 @@
-
-import headshotImg from "@/assets/headshot.jpg";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 
 interface CVAvatarProps {
@@ -10,7 +8,7 @@ interface CVAvatarProps {
 export default function CVAvatar(props: CVAvatarProps) {
   return (
     <Avatar className="size-28">
-      <AvatarImage alt={props.name} src={headshotImg.src} />
+      <AvatarImage alt={props.name} src={"/assets/headshot.jpg"} />
       <AvatarFallback>{props.initials}</AvatarFallback>
     </Avatar>
   )

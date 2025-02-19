@@ -1,10 +1,6 @@
 import { ArrowLeft, ArrowRight, Mail } from "lucide-react";
 import { Button, type ButtonProps } from "@/components/ui/button";
 import { GitHubSVG } from "@/components/svgs";
-import githubIMG from "@/assets/social-logos/github.png";
-import linkedinIMG from "@/assets/social-logos/linkedin.svg";
-import twitterIMG from "@/assets/social-logos/x.png";
-import blueskyIMG from "@/assets/social-logos/bluesky.svg";
 import { BLUESKY, EMAIL, GITHUB, LINKEDIN, TWITTER } from "@/lib/data";
 
 interface LinkedInButtonProps {
@@ -15,7 +11,7 @@ export function LinkedInButton({ className }: LinkedInButtonProps) {
   return (
     <a href={LINKEDIN} target="_blank">
       <Button variant="outline" size="icon" className={`${className || ""} p-[5px] opacity-70 hover:opacity-90 transition-opacity border-2`}>
-        <img src={linkedinIMG.src} className="filter grayscale" />
+        <img src={"/social-logos/linkedin.svg"} className="filter grayscale" />
       </Button>
     </a>
   )
@@ -29,7 +25,7 @@ export function GitHubButton({ className }: GitHubButtonProps) {
   return (
     <a href={GITHUB} target="_blank">
       <Button variant="outline" size="icon" className={`${className || ""} p-[5px] opacity-70 hover:opacity-90 transition-opacity border-2`}>
-        <img src={githubIMG.src} />
+        <img src={"/social-logos/github.png"} />
       </Button>
     </a>
   )
@@ -57,7 +53,7 @@ export function TwitterButton({ className }: TwitterButtonProps) {
   return (
     <a href={TWITTER} target="_blank">
       <Button variant="outline" size="icon" className={`${className || ""} p-[5px] opacity-70 hover:opacity-90 transition-opacity border-2`}>
-        <img src={twitterIMG.src} />
+        <img src={"/social-logos/x.png"} />
       </Button>
     </a>
   )
@@ -71,7 +67,7 @@ export function BlueskyButton({ className }: BlueskyButtonProps) {
   return (
     <a href={BLUESKY} target="_blank">
       <Button variant="outline" size="icon" className={`${className || ""} p-[5px] opacity-70 hover:opacity-90 transition-opacity border-2`}>
-        <img src={blueskyIMG.src} />
+        <img src={"/social-logos/bluesky.svg"} />
       </Button>
     </a>
   )
