@@ -6,6 +6,7 @@ import FeaturedProjectCard from '@/components/projects/featured-project-card';
 import ServiceCard from '@/components/service-card';
 import { Button } from '@/components/ui/button';
 import { EMAIL } from '@/lib/data';
+import { PORTRAIT_SRC } from '@/image-urls';
 
 const featuredProjects = (await getCollection("projects", (project) => project.data.featured))
 	.sort((p1, p2) => p1.data.priority - p2.data.priority)
@@ -15,7 +16,7 @@ const services: Service[] = [
 	{
 		title: "MVP Development",
 		description: "Turn your concept into a working product quickly and efficiently.",
-		image: "/assets/service-thumbnails/mvp-development-thumbnail.jpg",
+		image: "/service-thumbnails/mvp-development-thumbnail.jpg",
 		details: [
 			"Build a proof-of-concept to validate your idea",
 			"Develop a minimum viable product for market testing",
@@ -27,7 +28,7 @@ const services: Service[] = [
 	{
 		title: "Engineering Consultation",
 		description: "Leverage my experience as an experienced Software Engineer to solve complex technical challenges.",
-		image: "/assets/service-thumbnails/engineering-consulting-thumbnail.jpg",
+		image: "/service-thumbnails/engineering-consulting-thumbnail.jpg",
 		details: [
 			"User experience design for beautiful, intuitive, high-performance web applications",
 			"Technical architecture planning and review",
@@ -42,7 +43,7 @@ const services: Service[] = [
 	{
 		title: "Full-Time Engineering",
 		description: "Looking to strengthen your engineering team?",
-		image: "/assets/service-thumbnails/fulltime-engineering-thumbnail.jpg",
+		image: "/service-thumbnails/fulltime-engineering-thumbnail.jpg",
 		details: [
 			"Full-stack web development",
 			"API design and implementation",
@@ -95,10 +96,10 @@ const services: Service[] = [
 			<div class="backdrop-blur absolute bottom-44 right-1 bg-transparent -z-10 rounded-full"></div>
 			<div class="relative w-[300px] h-[450px] flex flex-wrap select-none pointer-events-none gap-0">
 				<div class="hidden lg:block absolute z-10" style="opacity: 1; transform: translateX(50px) translateY(190px) translateZ(0px);">
-					<img src={"/assets/portrait.png"} alt="portrait of Charles Buffington" class="rounded-lg rotate-2">
+					<img src={PORTRAIT_SRC} alt="portrait of Charles Buffington" class="rounded-lg rotate-2">
 				</div>
 				<div class="block lg:hidden absolute z-10" style="transform: translateY(50px);">
-					<img src={"/assets/portrait.png"} alt="portrait of Charles Buffington" class="scale-75 rounded-lg">
+					<img src={PORTRAIT_SRC} alt="portrait of Charles Buffington" class="scale-75 rounded-lg">
 				</div>
 			</div>
 		</aside>

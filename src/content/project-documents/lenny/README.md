@@ -14,5 +14,5 @@ Lenny is your AI-powered stock trading companion that simplifies investment deci
 
 ## Demo Video
 <video controls>
-  <source src="/lenny-demo.mp4" type="video/mp4">
+  <source src="https://zdrufoltmvtik50w.public.blob.vercel-storage.com/portfolio-assets/project-assets/lenny/lenny-demo.mp4" type="video/mp4">
 </video>

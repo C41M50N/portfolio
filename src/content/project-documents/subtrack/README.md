@@ -13,5 +13,5 @@ SubTrack is a subscription management tool that helps you take control of your r
 
 ## Demo Video
 <video controls>
-  <source src="/subtrack-demo.mov" type="video/mp4">
+  <source src="https://zdrufoltmvtik50w.public.blob.vercel-storage.com/portfolio-assets/project-assets/subtrack/subtrack-demo.mov" type="video/mp4">
 </video>

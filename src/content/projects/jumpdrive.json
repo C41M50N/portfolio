@@ -2,7 +2,7 @@
   "id": "jumpdrive",
   "title": "JumpDrive",
   "description": "A temporary file and text sharing service.",
-  "thumbnailImage": "/assets/jumpdrive/jumpdrive-thumbnail.jpg",
+  "thumbnailImage": "https://zdrufoltmvtik50w.public.blob.vercel-storage.com/portfolio-assets/project-assets/jumpdrive/jumpdrive-thumbnail.jpg",
   "live": "https://jumpdrive.app",
   "hidden": true,
   "priority": 10,
