@@ -18,14 +18,16 @@ export const getStaticPaths = ( async () => {
 }) satisfies GetStaticPaths;
 
 const allProjectDocuments = await Astro.glob("../../content/project-documents/**/*.md");
+//? should use below, since `Astro.glob` is deprecated. but type-safety goes away...
+// const allProjectDocuments = Object.values(import.meta.glob('../../content/project-documents/**/*.md', { eager: true }));
 
 const { entry } = Astro.props;
 
 const documents: Array<{ title: string; content: string }> = [];
 const container = await AstroContainer.create();
-for (const documentRef of entry.data.documents) {
+for (const documentRef of entry.data.documents.filter((doc) => !doc.hidden)) {
   const document = allProjectDocuments.find(
-    (d) => !documentRef.hidden && d.file.endsWith(documentRef.path)
+    (d) => d.file.endsWith(documentRef.path)
   );
   if (!document) return;
 
