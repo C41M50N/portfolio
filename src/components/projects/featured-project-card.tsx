@@ -21,12 +21,12 @@ export default function FeaturedProjectCard({ project }: Props) {
         <img src={project.data.thumbnailImage ?? DEFAULT_PROJECT_THUMBNAIL} className="transition-all duration-300 filter grayscale group-hover:filter-none" />
       </div>
 
-      <div className="pl-8 pr-12 pt-6 pb-4">
-        <h2 className="mb-1 text-2xl text-white font-semibold">
+      <div className="pl-8 pr-12 pt-4 sm:pt-6 pb-4">
+        <h2 className="sm:mb-1 text-2xl text-white font-semibold">
           {project.data.title}
         </h2>
 
-        <span className="text-white/50 pr-2">
+        <span className="mb-1 sm:mb-0 text-white/50 text-[16px] sm:text-base pr-2">
           {project.data.description}
         </span>
 
@@ -42,7 +42,7 @@ export default function FeaturedProjectCard({ project }: Props) {
           ))}
         </div>
 
-        <div className="mt-4 flex flex-row items-center space-x-3 relative z-20">
+        <div className="hidden mt-4 sm:flex flex-row items-center space-x-3 relative z-20">
           {project.data.live && (
             <LiveProjectButton href={project.data.live} />
           )}

@@ -42,16 +42,16 @@ export const prerender = true;
 ---
 
 <Layout title={`${entry.data.title} | Buffington's Projects`}>
-  <div class="max-w-4xl w-full px-10 flex flex-col gap-4">
-    <div class="pt-10 flex flex-row items-center space-x-10">
-      <div class="max-w-64 md:max-w-80">
+  <div class="max-w-4xl w-full px-4 sm:px-10 flex flex-col gap-4">
+    <div class="pt-4 sm:pt-10 flex flex-col items-start space-y-0.5 sm:flex-row sm:items-center sm:space-x-10">
+      <div class="sm:max-w-64 md:max-w-80">
         <img
           class="rounded-sm"
           src={entry.data.thumbnailImage ?? DEFAULT_PROJECT_THUMBNAIL}
         />
       </div>
 
-      <div class="space-y-1">
+      <div class="pl-1 sm:pl-0 pt-4 sm:pt-0 space-y-1">
         <h1 class="text-3xl font-semibold tracking-wide">{entry.data.title}</h1>
         <p class="text-base text-[#d3d3d4]">{entry.data.description}</p>
         <div class="pt-2 flex flex-row gap-3">
@@ -61,7 +61,7 @@ export const prerender = true;
       </div>
     </div>
     
-    <div class="pt-2 flex flex-row items-center gap-2">
+    <div class="pl-1 sm:pl-0 pt-2 flex flex-col items-start gap-y-1 sm:flex-row sm:items-center sm:gap-y-2">
       <span class="text-base font-semibold">
         Tech Stack:
       </span>
