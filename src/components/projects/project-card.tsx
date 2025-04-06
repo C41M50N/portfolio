@@ -14,7 +14,7 @@ export function ProjectCard({ project }: Props) {
         <span className="sr-only">View project: {project.data.title}</span>
       </a>
 
-      <div className="relative w-52 rounded-l-lg overflow-hidden">
+      <div className="hidden sm:block relative w-52 rounded-l-lg overflow-hidden">
         <object data={project.data.thumbnailImage} type="image/jpg" className="w-52 object-cover h-full transition-all duration-300 filter grayscale group-hover:filter-none">
           <img
             alt={`project "${project.data.title}" thumbnail`}
@@ -24,7 +24,7 @@ export function ProjectCard({ project }: Props) {
         </object>
       </div>
 
-      <div className="pl-1 pt-5 pb-3 flex flex-col gap-0">
+      <div className="pl-4 sm:pl-1 pt-5 pb-3 flex flex-col gap-0">
         <h3 className="text-xl font-semibold">
           {project.data.title}
         </h3>
