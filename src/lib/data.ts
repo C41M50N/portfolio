@@ -2,7 +2,6 @@
 export const EMAIL = "hello.cfsb@proton.me";
 export const LINKEDIN = "https://www.linkedin.com/in/charles-buffington/";
 export const GITHUB = "https://github.com/C41M50N";
-export const BLUESKY = "https://bsky.app/profile/cbuff.dev";
 export const TWITTER = "https://x.com/C41M50N";
 
 // --------------------------------------------------

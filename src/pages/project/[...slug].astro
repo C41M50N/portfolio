@@ -1,5 +1,5 @@
 ---
-import type { GetStaticPaths } from "astro";
+import type { GetStaticPaths, MarkdownInstance } from "astro";
 import { getCollection } from "astro:content";
 import { experimental_AstroContainer as AstroContainer } from 'astro/container';
 import { TechCatalog } from "@/lib/data";
@@ -17,9 +17,7 @@ export const getStaticPaths = ( async () => {
   }))
 }) satisfies GetStaticPaths;
 
-const allProjectDocuments = await Astro.glob("../../content/project-documents/**/*.md");
-//? should use below, since `Astro.glob` is deprecated. but type-safety goes away...
-// const allProjectDocuments = Object.values(import.meta.glob('../../content/project-documents/**/*.md', { eager: true }));
+const allProjectDocuments = Object.values(import.meta.glob('../../content/project-documents/**/*.md', { eager: true })) as MarkdownInstance<Record<string, any>>[];
 
 const { entry } = Astro.props;
 
@@ -62,7 +60,7 @@ export const prerender = true;
     </div>
     
     <div class="pl-1 sm:pl-0 pt-2 flex flex-col items-start gap-y-1 sm:flex-row sm:items-center sm:gap-y-2">
-      <span class="text-base font-semibold">
+      <span class="text-base font-semibold pr-1">
         Tech Stack:
       </span>
       <div class="flex flex-row flex-wrap gap-x-2 gap-y-1">

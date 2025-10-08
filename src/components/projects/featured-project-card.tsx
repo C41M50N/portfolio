@@ -44,10 +44,10 @@ export default function FeaturedProjectCard({ project }: Props) {
 
         <div className="hidden mt-4 sm:flex flex-row items-center space-x-3 relative z-20">
           {project.data.live && (
-            <LiveProjectButton href={project.data.live} />
+            <LiveProjectButton href={project.data.live} border />
           )}
           {project.data.github && (
-            <GitHubProjectButton href={project.data.github} />
+            <GitHubProjectButton href={project.data.github} border />
           )}
         </div>
       </div>

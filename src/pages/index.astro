@@ -1,11 +1,9 @@
 ---
 import { getCollection } from 'astro:content';
 import Layout from '@/layouts/Layout.astro';
-import { AnimatedLinkButton, BlueskyButton, GitHubButton, LinkedInButton, MailButton, TwitterButton } from '@/components/projects/buttons';
+import { AnimatedLinkButton, ContactButton, GitHubButton, LinkedInButton, MailButton, TwitterButton } from '@/components/projects/buttons';
 import FeaturedProjectCard from '@/components/projects/featured-project-card';
 import ServiceCard from '@/components/service-card';
-import { Button } from '@/components/ui/button';
-import { EMAIL } from '@/lib/data';
 import { PORTRAIT_SRC } from '@/image-urls';
 
 const featuredProjects = (await getCollection("projects", (project) => project.data.featured))
@@ -33,7 +31,7 @@ const services: Service[] = [
 			"User experience design for beautiful, intuitive, high-performance web applications",
 			"Technical architecture planning and review",
 			"Performance optimization and scalability solutions",
-			"Cloud infrastructure design (AWS, GCP, Azure, DO, Vercel)",
+			"Cloud infrastructure design (AWS, GCP, Azure, Digital Ocean, Railway)",
 			"Software development process optimization",
 			"Technology stack evaluation and recommendations",
 			// "Security assessment and implementation",
@@ -63,19 +61,19 @@ const services: Service[] = [
 		<article class="max-w-[600px] lg:pt-20 flex flex-col justify-center items-center lg:items-start gap-3">
 			<div class="flex flex-col justify-center items-center gap-0.5 lg:items-start pt-5 lg:pt-6">
 				<h1 class="text-2xl lg:text-[40px] lg:leading-10 font-merriweather font-bold bg-clip-text">Charles Buffington II</h1>
-				<h2 class="text-white/80 text-sm lg:text-xl">Software Engineer, Follower of Christ.</h2>
+				<h2 class="text-white/80 text-sm lg:text-xl">Full Stack Software Engineer</h2>
 			</div>
 			<p class="hidden sm:block text-md text-white/60 text-center lg:text-start text-sm lg:text-base">
-				I craft elegant, robust software solutions that drive business success.
+				Full-stack developer specializing in TypeScript.
 				<br>
-				I'm interested in software design, productivity science, and robotics.
+				I create web applications that feel good to use.
 				<br>
 				Currently based in <a href="https://maps.app.goo.gl/HGJqpsgaUhTTWXMT6" target="_blank" class="underline hover:text-white/90">Michigan, USA</a>.
 				Open to relocation 👀
 			</p>
 			<p class="block sm:hidden px-0.5 text-md text-white/60 text-center lg:text-start text-sm lg:text-base">
-				I craft elegant, robust software solutions that drive business success.
-				I'm interested in software design, productivity science, and robotics.
+				Full-stack developer specializing in TypeScript.
+				I create web applications that feel good to use.
 				Currently based in <a href="https://maps.app.goo.gl/HGJqpsgaUhTTWXMT6" target="_blank" class="underline hover:text-white/90">Michigan, USA</a>.
 			</p>
 			<!-- TODO: Tech Stack -->
@@ -83,7 +81,6 @@ const services: Service[] = [
 				<GitHubButton className="size-9" />
 				<LinkedInButton className="size-9" />
 				<TwitterButton className="size-9" />
-				<BlueskyButton className="size-9" />
 				<MailButton className="size-9" />
 
 				<div></div>
@@ -139,13 +136,10 @@ const services: Service[] = [
 
 			<div class="text-center pt-12 sm:pt-24">
 				<p class="text-base font-medium mb-4 text-white/50">Ready to discuss your project?</p>
-
-				<a href={`mailto:${EMAIL}`}>
-					<Button variant="default" size="lg" className="px-6 py-6 font-medium text-base rounded-md">
-						Contact me
-					</Button>
-				</a>
+				<ContactButton />
 			</div>
 		</div>
 	</section>
+
+	<!-- TODO: Client Testimonials (after i get clients or coworker testimonials) -->
 </Layout>
