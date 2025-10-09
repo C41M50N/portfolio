@@ -20,5 +20,5 @@ COPY --from=build /app/dist /app/dist
 RUN pnpm install -g serve
 WORKDIR /app/dist
 
-EXPOSE 80
-CMD [ "serve", "-s", ".", "-l", "80" ]
+EXPOSE 8080
+CMD [ "serve", "-s", ".", "-l", "8080" ]
