@@ -1,4 +1,4 @@
-import { ArrowLeft, ArrowRight, Mail } from "lucide-react";
+import { ArrowLeft, ArrowRight } from "lucide-react";
 import { Button, type ButtonProps } from "@/components/ui/button";
 import { GitHubSVG } from "@/components/svgs";
 import { EMAIL, GITHUB, LINKEDIN, TWITTER } from "@/lib/data";
