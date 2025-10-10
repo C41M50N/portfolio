@@ -17,9 +17,3 @@ COPY . .
 
 # Build the application
 RUN pnpm build
-
-# Expose port
-EXPOSE $PORT
-
-# Start the application
-CMD ["pnpm", "preview", "--host", "0.0.0.0", "--port", "$PORT"]
