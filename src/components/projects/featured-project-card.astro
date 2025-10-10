@@ -1,0 +1,57 @@
+---
+import type { CollectionEntry } from "astro:content"
+import LiveProjectButton from "./live-project-button.astro";
+import GithubProjectButton from "./github-project-button.astro";
+import TechBadge from "./tech-badge.astro";
+import { TechCatalog } from "@/lib/data";
+import { DEFAULT_PROJECT_THUMBNAIL } from "@/image-urls";
+
+type Props = {
+  project: CollectionEntry<"projects">;
+}
+
+const { project } = Astro.props;
+---
+
+<div
+  class="group relative bg-[#161616] hover:bg-[#242424] border border-zinc-900 hover:border-zinc-800 rounded-lg shadow-xl hover:cursor-pointer transition-colors duration-300"
+>
+  <a href={`/project/${project.id}`} class="absolute inset-0 z-20">
+    <span class="sr-only">View project: {project.data.title}</span>
+  </a>
+
+  <div class="relative h-40 sm:h-56 w-full rounded-t-lg overflow-hidden">
+    <img src={project.data.thumbnailImage ?? DEFAULT_PROJECT_THUMBNAIL} class="transition-all duration-300 filter grayscale group-hover:filter-none" />
+  </div>
+
+  <div class="pl-8 pr-12 pt-4 sm:pt-6 pb-4">
+    <h2 class="sm:mb-1 text-2xl text-white font-semibold">
+      {project.data.title}
+    </h2>
+
+    <span class="mb-1 sm:mb-0 text-white/50 text-[16px] sm:text-base pr-2">
+      {project.data.description}
+    </span>
+
+    <div class="hidden sm:flex pt-2 flex-row gap-x-2">
+      {project.data.techstack.slice(0,4).map((tech) => (
+        <TechBadge data={TechCatalog[tech]} />
+      ))}
+    </div>
+
+    <div class="flex sm:hidden pt-2 flex-row gap-x-3">
+      {project.data.techstack.slice(0,3).map((tech) => (
+        <TechBadge data={TechCatalog[tech]} />
+      ))}
+    </div>
+
+    <div class="hidden mt-4 sm:flex flex-row items-center space-x-3 relative z-50 w-fit">
+      {project.data.live && (
+        <LiveProjectButton href={project.data.live} />
+      )}
+      {project.data.github && (
+        <GithubProjectButton href={project.data.github} />
+      )}
+    </div>
+  </div>
+</div>

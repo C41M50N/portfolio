@@ -1,0 +1,20 @@
+---
+interface Props {
+  title: string;
+  href: string;
+  external?: boolean;
+}
+
+const { title, href, external = false } = Astro.props;
+---
+
+<li>
+  <a
+    href={href}
+    target={external ? "_blank" : undefined}
+    aria-label={`Go to ${title} page`}
+    class="cursor-pointer opacity-60 hover:opacity-100"
+  >
+    {title}
+  </a>
+</li>

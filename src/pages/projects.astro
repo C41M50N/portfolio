@@ -2,7 +2,7 @@
 import { getCollection } from "astro:content";
 import Layout from "@/layouts/Layout.astro";
 import { Separator } from "@/components/ui/separator";
-import { ProjectCard } from "@/components/projects/project-card";
+import ProjectCard from "@/components/projects/project-card.astro";
 
 const allProjects = (await getCollection("projects", (project) => !project.data.hidden))
   .sort((p1, p2) => p1.data.priority - p2.data.priority)

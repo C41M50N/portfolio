@@ -1,0 +1,42 @@
+---
+import { type CollectionEntry } from "astro:content";
+import TechBadge from "./tech-badge.astro";
+import { TechCatalog } from "@/lib/data";
+import { DEFAULT_PROJECT_THUMBNAIL } from "@/image-urls";
+
+type Props = {
+  project: CollectionEntry<"projects">;
+}
+
+const { project } = Astro.props;
+---
+
+<div class="group relative w-full flex flex-row items-stretch gap-6 bg-[#161616] hover:bg-[#1F1F1F] border border-zinc-900 hover:border-zinc-800 rounded-lg shadow-xl hover:cursor-pointer transition-colors duration-300">
+  <a href={`/project/${project.data.id}`} class="absolute inset-0 z-10">
+    <span class="sr-only">View project: {project.data.title}</span>
+  </a>
+
+  <div class="hidden sm:block relative w-52 rounded-l-lg overflow-hidden">
+    <object data={project.data.thumbnailImage} type="image/jpg" class="w-52 object-cover h-full transition-all duration-300 filter grayscale group-hover:filter-none">
+      <img
+        alt={`project "${project.data.title}" thumbnail`}
+        src={DEFAULT_PROJECT_THUMBNAIL}
+        class="h-full transition-all duration-300 filter grayscale group-hover:filter-none"
+      />
+    </object>
+  </div>
+
+  <div class="pl-4 sm:pl-1 pt-5 pb-3 flex flex-col gap-0">
+    <h3 class="text-xl font-semibold">
+      {project.data.title}
+    </h3>
+    <span class="text-sm text-muted-foreground">
+      {project.data.description}
+    </span>
+    <div class="pt-2 flex flex-row flex-wrap gap-x-2 gap-y-1">
+      {project.data.techstack.slice(0,4).map((tech) => (
+        <TechBadge data={TechCatalog[tech]} />
+      ))}
+    </div>
+  </div>
+</div>

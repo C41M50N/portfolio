@@ -1,9 +1,10 @@
 ---
 import { getCollection } from 'astro:content';
 import Layout from '@/layouts/Layout.astro';
-import { AnimatedLinkButton, ContactButton, GitHubButton, LinkedInButton, MailButton, TwitterButton } from '@/components/projects/buttons';
-import FeaturedProjectCard from '@/components/projects/featured-project-card';
-import ServiceCard from '@/components/service-card';
+import AnimatedLinkButton from '@/components/animated-link-button.astro';
+import { ContactButton, GitHubButton, LinkedInButton, MailButton, TwitterButton } from '@/components/projects/buttons';
+import FeaturedProjectCard from '@/components/projects/featured-project-card.astro';
+import ServiceCard from '@/components/service-card.astro';
 import { PORTRAIT_SRC } from '@/image-urls';
 
 const featuredProjects = (await getCollection("projects", (project) => project.data.featured))

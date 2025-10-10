@@ -1,0 +1,69 @@
+---
+import { ArrowRight } from "@lucide/astro";
+
+type Props = {
+  service: Service;
+}
+
+const { service } = Astro.props;
+---
+
+<div class="group relative flex flex-col sm:max-w-lg h-full bg-[#161616] hover:bg-[#242424] border border-zinc-900 hover:border-zinc-800 rounded-sm shadow-xl hover:cursor-pointer transition-colors duration-300">
+  <a href={service.calLink} target="_blank" class="absolute inset-0 z-20">
+    <span class="sr-only">Book a call: {service.title}</span>
+  </a>
+
+  <div class="relative h-44 w-full rounded-t-sm overflow-hidden">
+    <img
+      src={service.image}
+      alt={service.title}
+      class="w-full h-full transition-all duration-300 filter grayscale group-hover:filter-none"
+    />
+  </div>
+
+  <div class="flex flex-col flex-grow pl-6 sm:pl-8 pr-8 sm:pr-10 pt-6 pb-4">
+    <div class="flex-grow">
+      <h3 class="mb-1 text-2xl text-white font-semibold">
+        {service.title}
+      </h3>
+
+      <p class="text-sm text-white/50 pr-2">
+        {service.description}
+      </p>
+
+      <ul class="mt-5 space-y-2 text-white/50 text-sm sm:text-base">
+        {service.details.map((detail, index) => (
+          <li class="flex items-start">
+            <ArrowRight class="w-4 h-4 mr-2 mt-1 flex-shrink-0" />
+            <span>{detail}</span>
+          </li>
+        ))}
+      </ul>
+    </div>
+  </div>
+
+  <div class="pl-8 pr-7 py-4 flex items-center justify-end text-white text-[16px] sm:text-base opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+    <div class="px-0.5 pb-1 flex flex-row items-center border-b border-zinc-500">
+      <span class="mr-1 text-white/90">Book a call</span>
+      <ArrowRight stroke-width={1.0} size={20} class="group-hover:translate-x-1 duration-300 ease-in" />
+    </div>
+  </div>
+</div>
+<!-- <style>
+  .group::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    z-index: 15;
+    cursor: pointer;
+    pointer-events: auto;
+  }
+  .group:hover::before {
+    background-color: rgba(255, 255, 255, 0.1);
+  }
+  .group > *:not(a) {
+    position: relative;
+    z-index: 20;
+    pointer-events: none;
+  }
+</style> -->

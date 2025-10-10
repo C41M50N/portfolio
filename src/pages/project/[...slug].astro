@@ -4,9 +4,10 @@ import { getCollection } from "astro:content";
 import { experimental_AstroContainer as AstroContainer } from 'astro/container';
 import { TechCatalog } from "@/lib/data";
 import Layout from "@/layouts/Layout.astro";
-import { TechBadge } from "@/components/projects/tech-badge";
+import TechBadge from "@/components/projects/tech-badge.astro";
 import { ProjectDocumentsTabs } from "@/components/projects/project-documents-tabs";
-import { GitHubProjectButton, LiveProjectButton } from "@/components/projects/buttons";
+import LiveProjectButton from "@/components/projects/live-project-button.astro";
+import GithubProjectButton from "@/components/projects/github-project-button.astro";
 import { DEFAULT_PROJECT_THUMBNAIL } from "@/image-urls";
 
 export const getStaticPaths = ( async () => {
@@ -52,7 +53,7 @@ for (const documentRef of entry.data.documents.filter((doc) => !doc.hidden)) {
         <p class="text-base text-[#d3d3d4]">{entry.data.description}</p>
         <div class="pt-2 flex flex-row gap-3">
           {entry.data.live && <LiveProjectButton href={entry.data.live} />}
-          {entry.data.github && <GitHubProjectButton href={entry.data.github} />}
+          {entry.data.github && <GithubProjectButton href={entry.data.github} />}
         </div>
       </div>
     </div>
