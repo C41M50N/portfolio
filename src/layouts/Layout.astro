@@ -61,6 +61,12 @@ const navItems: NavLinkProps[] = [
 		<meta name="generator" content={Astro.generator} />
 		<title>{title}</title>
 		<ClientRouter />
+		<script
+			is:inline
+			src="https://backend-production-af65.up.railway.app/api/script.js"
+			data-site-id="1"
+			defer
+		></script>
 	</head>
 	<body
 	class="dark min-h-screen antialiased flex flex-col items-center justify-start overscroll-y-none"
