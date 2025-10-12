@@ -9,4 +9,5 @@ export default defineConfig({
     tailwind({ applyBaseStyles: false }),
   ],
   output: "static",
+  site: "https://portfolio-railway-migration.up.railway.app",
 });
