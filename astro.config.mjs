@@ -9,4 +9,18 @@ export default defineConfig({
     tailwind({ applyBaseStyles: false }),
   ],
   output: "static",
+  build: {
+    assets: '_astro'
+  },
+  vite: {
+    build: {
+      rollupOptions: {
+        output: {
+          entryFileNames: '_astro/[name].[hash].js',
+          chunkFileNames: '_astro/[name].[hash].js',
+          assetFileNames: '_astro/[name].[hash][extname]'
+        }
+      }
+    }
+  }
 });
