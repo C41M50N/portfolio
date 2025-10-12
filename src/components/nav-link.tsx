@@ -1,11 +1,5 @@
 
-export type NavLinkProps = {
-  title: string;
-  href: string;
-  external?: boolean;
-}
-
-export default function NavLink({ title, href, external = false }: NavLinkProps) {
+export default function NavLink({ title, href, external = false }: NavItem) {
   return (
     <li>
       <a

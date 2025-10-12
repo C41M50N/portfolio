@@ -7,10 +7,9 @@ import {
   DrawerClose 
 } from '@/components/ui/drawer';
 import { Button } from '@/components/ui/button';
-import type { NavLinkProps } from "./nav-link";
 
 interface HeaderDrawerProps {
-  navItems: NavLinkProps[]
+  navItems: NavItem[]
 }
 
 export function HeaderDrawer({ navItems }: HeaderDrawerProps) {

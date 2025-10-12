@@ -11,9 +11,9 @@ type Props = {
 export default function FeaturedProjectCard({ project }: Props) {
   return (
     <div
-      className="group relative bg-[#161616] hover:bg-[#1F1F1F] border border-zinc-900 hover:border-zinc-800 rounded-lg shadow-xl hover:cursor-pointer transition-colors duration-300"
+      className="group relative bg-[#161616] hover:bg-[#242424] border border-zinc-900 hover:border-zinc-800 rounded-lg shadow-xl hover:cursor-pointer transition-colors duration-300"
     >
-      <a href={`/project/${project.id}`} className="absolute inset-0 z-10">
+      <a href={`/project/${project.id}`} className="absolute inset-0 z-20">
         <span className="sr-only">View project: {project.data.title}</span>
       </a>
 
@@ -42,37 +42,15 @@ export default function FeaturedProjectCard({ project }: Props) {
           ))}
         </div>
 
-        <div className="hidden mt-4 sm:flex flex-row items-center space-x-3 relative z-20">
+        <div className="hidden mt-4 sm:flex flex-row items-center space-x-3 relative z-50 w-fit">
           {project.data.live && (
-            <LiveProjectButton href={project.data.live} border />
+            <LiveProjectButton href={project.data.live} />
           )}
           {project.data.github && (
-            <GitHubProjectButton href={project.data.github} border />
+            <GitHubProjectButton href={project.data.github} />
           )}
         </div>
       </div>
-
-      <style>{`
-        .group::before {
-          content: '';
-          position: absolute;
-          inset: 0;
-          z-index: 15;
-          cursor: pointer;
-          pointer-events: auto;
-        }
-        .group:hover::before {
-          background-color: rgba(255, 255, 255, 0.1);
-        }
-        .group > *:not(a) {
-          position: relative;
-          z-index: 20;
-          pointer-events: none;
-        }
-        .group button {
-          pointer-events: auto;
-        }
-      `}</style>
     </div>
   )
 }
