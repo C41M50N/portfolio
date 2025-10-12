@@ -19,6 +19,6 @@ COPY . .
 RUN pnpm build
 
 # Use nginx to serve static files
-FROM nginx:alpine
+FROM nginx:stable-alpine
 COPY --from=0 /app/dist /usr/share/nginx/html
 COPY nginx.conf /etc/nginx/conf.d/default.conf
