@@ -3,8 +3,8 @@
 
 type NavItem = {
 	title: string;
-	label: string;
 	href: string;
+	external?: boolean;
 }
 
 type Service = {

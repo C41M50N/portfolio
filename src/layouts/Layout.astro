@@ -1,12 +1,11 @@
 ---
-import Analytics from "@vercel/analytics/astro"
 import { ClientRouter } from 'astro:transitions';
 import dayjs from "dayjs";
 import "@fontsource/inter";
 import "@/styles/globals.css";
 import { HeaderDrawer } from "@/components/header-drawer";
 import { GitHubButton, LinkedInButton, MailButton, TwitterButton } from '@/components/projects/buttons';
-import NavLink, { type NavLinkProps } from "@/components/nav-link";
+import NavLink from "@/components/nav-link";
 
 interface Props {
 	title: string;
@@ -14,7 +13,7 @@ interface Props {
 
 const { title } = Astro.props;
 
-const navItems: NavLinkProps[] = [
+const navItems: NavItem[] = [
 	// {
 	// 	title: "About",
 	// 	label: "Go to about page",
@@ -45,10 +44,11 @@ const navItems: NavLinkProps[] = [
 <html lang="en">
 	<head>
 		<meta charset="UTF-8" />
+		<meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests" />
 		<meta name="description" content="Charles Buffington's portfolio." />
 		<meta name="keywords" content="portfolio" />
 		<link rel="author" href="https://github.com/C41M50N" />
-		<link rel="canonical" href="https://cbuff.dev">
+		<link rel="canonical" href="https://cbuff.dev" />
 		<meta property="og:url" content="https://cbuff.dev" />
 		<meta property="og:title" content={title} />
 		<meta property="og:description" content="Charles Buffington's portfolio." />
@@ -65,7 +65,6 @@ const navItems: NavLinkProps[] = [
 	<body
 	class="dark min-h-screen antialiased flex flex-col items-center justify-start overscroll-y-none"
 	>
-		<Analytics />
 		<header
 			class="bg-[#171717] w-full h-16 border-b border-[#333333] fixed z-50 top-0 bg-background-2 transition-colors"
 		>
@@ -122,10 +121,8 @@ const navItems: NavLinkProps[] = [
 
 		<footer class="max-w-5xl flex flex-col-reverse text-center sm:text-start gap-y-8 sm:flex-row items-center justify-around py-14 w-full">
 			<div class="flex flex-col">
-				<span class="text-white/50 text-sm">Built with 
-					<a class="text-white/90 hover:text-white/100 hover:underline" href="https://astro.build/">Astro</a>, 
-					<a class="text-white/90 hover:text-white/100 hover:underline" href="https://ui.shadcn.com/">shadcn</a>, and 
-					<a class="text-white/90 hover:text-white/100 hover:underline" href="https://vercel.com/">Vercel</a>.
+				<span class="text-white/50 text-sm">v3.1.2 • Built with ❤️ and 
+					<a class="text-white/90 hover:text-white/100 hover:underline" href="https://astro.build/">Astro</a>
 				</span>
 				<span class="text-white/50 text-sm">Copyright © {dayjs().year()} · Charles Buffington II</span>
 			</div>
