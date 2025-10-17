@@ -15,7 +15,7 @@ export default function ServiceCard({ service }: { service: Service }) {
         />
       </div>
 
-      <div className="flex flex-col flex-grow pl-6 sm:pl-8 pr-8 sm:pr-10 pt-6 pb-4">
+      <div className="flex flex-col flex-grow pl-6 sm:pl-8 pr-8 sm:pr-8 pt-6 pb-4">
         <div className="flex-grow">
           <h3 className="mb-1 text-2xl text-white font-semibold">
             {service.title}
@@ -25,11 +25,13 @@ export default function ServiceCard({ service }: { service: Service }) {
             {service.description}
           </p>
 
-          <ul className="mt-5 space-y-2 text-white/50 text-sm sm:text-base">
+          <ul className="mt-5 space-y-2 text-white/70 text-sm sm:text-base">
             {service.details.map((detail, index) => (
               <li key={index} className="flex items-start">
-                <ArrowRight className="w-4 h-4 mr-2 mt-1 flex-shrink-0" />
-                <span>{detail}</span>
+                <ArrowRight className="size-3 mr-2 mt-[5px] flex-shrink-0" />
+                <span className="text-base leading-snug">
+                  {detail}
+                </span>
               </li>
             ))}
           </ul>
