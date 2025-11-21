@@ -7,7 +7,7 @@ export default function ServiceCard({ service }: { service: Service }) {
         <span className="sr-only">Book a call: {service.title}</span>
       </a>
 
-      <div className="relative h-44 w-full rounded-t-sm overflow-hidden">
+      <div className="relative aspect-video w-full rounded-t-sm overflow-hidden">
         <img
           src={service.image}
           alt={service.title}
