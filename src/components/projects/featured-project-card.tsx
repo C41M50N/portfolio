@@ -26,7 +26,7 @@ export default function FeaturedProjectCard({ project }: Props) {
           {project.data.title}
         </h2>
 
-        <span className="mb-1 sm:mb-0 text-white/50 text-[16px] sm:text-base pr-2">
+        <span className="mb-1 sm:mb-0 text-white/60 text-base pr-2">
           {project.data.description}
         </span>
 

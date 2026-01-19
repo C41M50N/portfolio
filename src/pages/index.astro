@@ -10,50 +10,45 @@ const featuredProjects = (await getCollection("projects", (project) => project.d
 	.sort((p1, p2) => p1.data.priority - p2.data.priority)
 	.reverse();
 
-const services: Service[] = [
-	{
-		title: "MVP Development",
-		description: "Turn your idea into a working product you can put in front of users",
-		image: "/service-thumbnails/mvp-2.jpg",
-		details: [
-			"Bridge the gap between idea and implementation for early-stage founders",
-			"Ask the right questions to clarify your vision and identify core features",
-			"Build clean, intuitive interfaces that make your product easy to use",
-			"Ship quickly so you can start testing with real users and gathering feedback",
-			"Build it right the first time - fast enough to test, solid enough to scale"
-		],
-		calLink: "https://cal.com/cbuffington/mvp-development"
-	},
-	{
-		title: "Engineering Consultation",
-		description: "Help your team ship faster and work happier",
-		image: "/service-thumbnails/consulting-2.jpg",
-		details: [
-			"Improve developer experience through type-safety, clear documentation, and thoughtful tooling",
-			"Write documentation that developers actually read and use",
-			"Design simple architecture solutions to complex problems",
-			"Build automations that free up your team to focus on shipping features",
-			"Optimize performance and scalability before issues become costly",
-			"Evaluate and recommend technology stacks that fit your needs",
-		],
-		calLink: "https://cal.com/cbuffington/engineering-consultation"
-	},
-	{
-		title: "Full-Time Engineering",
-		description: "What I bring to your team:",
-		image: "/service-thumbnails/fulltime-2.jpg",
-		details: [
-			"Design and build intuitive interfaces that users actually enjoy",
-			"Architect durable backend systems that handle growth",
-			"Ship features quickly without sacrificing quality",
-			"Own projects end-to-end, from technical design to deployment",
-			"Bridge technical and non-technical teams to align decisions with business goals",
-			"Collaborate with customers to turn feedback into features that solve real problems",
-			"Open to full-time and contract positions",
-		],
-		calLink: "https://cal.com/cbuffington/new-engineering-role"
-	}
-]
+	const services: Service[] = [
+		{
+			title: "MVP Development",
+			description: "Turn your idea into a working product you can put in front of users",
+			image: "/service-thumbnails/mvp-2.jpg",
+			details: [
+				"Turn raw ideas into a usable v1 fast",
+				"Clarify scope and nail the core user flow",
+				"Build a clean UI that's easy to iterate on",
+				"Ship feedback-ready and scale-capable"
+			],
+			calLink: "https://cal.com/cbuffington/mvp-development"
+		},
+		{
+			title: "Engineering Consultation",
+			description: "Help your team ship faster and work happier",
+			image: "/service-thumbnails/consulting-2.jpg",
+			details: [
+				"Remove dev friction with better tooling and docs",
+				"Simplify architecture without losing flexibility",
+				"Automate repeat work to speed releases",
+				"Tune performance before it becomes costly"
+			],
+			calLink: "https://cal.com/cbuffington/engineering-consultation"
+		},
+		{
+			title: "Full-Time Engineering",
+			description: "What I bring to your team:",
+			image: "/service-thumbnails/fulltime-2.jpg",
+			details: [
+				"Own features end-to-end with product context",
+				"Build durable systems that scale with demand",
+				"Ship quickly without cutting quality corners",
+				"Partner with customers to shape what matters"
+			],
+			calLink: "https://cal.com/cbuffington/new-engineering-role"
+		}
+	]
+
 ---
 
 <Layout title="Charles Buffington">
@@ -64,18 +59,14 @@ const services: Service[] = [
 				<h1 class="text-2xl lg:text-[40px] lg:leading-10 font-merriweather font-bold bg-clip-text">Charles Buffington II</h1>
 				<h2 class="text-white/80 text-sm lg:text-xl">Full Stack Software Engineer</h2>
 			</div>
-			<p class="hidden sm:block text-md text-white/60 text-center lg:text-start text-sm lg:text-base">
-				Full-stack developer specializing in TypeScript.
-				<br>
-				I create web applications that feel good to use.
-				<br>
-				Currently based in <a href="https://maps.app.goo.gl/HGJqpsgaUhTTWXMT6" target="_blank" class="underline hover:text-white/90">Michigan, USA</a>.
+			<p class="hidden sm:block text-base text-white/60 text-center lg:text-start text-sm lg:text-base">
+				Full-stack engineer focused on customer-driven iteration and developer productivity, building high-impact web products at startup speed without sacrificing quality.
+				Currently living in <a href="https://maps.app.goo.gl/HGJqpsgaUhTTWXMT6" target="_blank" class="underline hover:text-white/90">Michigan, USA</a>.
 				Open to relocation 👀
 			</p>
-			<p class="block sm:hidden px-0.5 text-md text-white/60 text-center lg:text-start text-sm lg:text-base">
-				Full-stack developer specializing in TypeScript.
-				I create web applications that feel good to use.
-				Currently based in <a href="https://maps.app.goo.gl/HGJqpsgaUhTTWXMT6" target="_blank" class="underline hover:text-white/90">Michigan, USA</a>.
+			<p class="block sm:hidden px-0.5 text-base text-white/60 text-center lg:text-start text-sm lg:text-base">
+				Full-stack engineer focused on customer-driven iteration and developer productivity, building high-impact web products at startup speed without sacrificing quality.
+				Currently living in <a href="https://maps.app.goo.gl/HGJqpsgaUhTTWXMT6" target="_blank" class="underline hover:text-white/90">Michigan, USA</a>.
 			</p>
 			<!-- TODO: Tech Stack -->
 			<nav class="flex flex-row gap-3">
@@ -107,7 +98,7 @@ const services: Service[] = [
 	<section id="projects" class="pt-24 pb-32 flex flex-col items-center justify-center">
 		<div class="flex flex-col gap-3 px-4 text-center sm:px-1 sm:pt-10">
 			<h1 class="text-2xl md:text-3xl lg:text-4xl font-bold bg-clip-text">What I've Built 🛠️</h1>
-			<span class="text-white/50 text-[16px] sm:text-base italic">"The best way to learn is to build sh*t."<span class="not-italic"> &boxh; Theo Browne</span></span>
+			<span class="text-white/60 text-base italic">"The best way to learn is to build sh*t."<span class="not-italic"> &boxh; Theo Browne</span></span>
 		</div>
 
 		<div class="min-h-52 w-full max-w-7xl grid gap-8 md:grid-cols-2 pt-12 pb-6 px-3 sm:px-8">
@@ -125,7 +116,7 @@ const services: Service[] = [
 	<section id="services" class="pt-0 pb-0 sm:pt-24 sm:pb-24 flex flex-col items-center justify-center">
 		<div class="container mx-auto px-4">
 			<h2 class="text-2xl md:text-3xl lg:text-4xl font-bold text-center mb-3 text-white">My Services 🦾</h2>
-			<p class="text-center text-white/50 text-[16px] sm:text-base mb-12 max-w-2xl mx-auto">
+			<p class="text-center text-white/60 text-base mb-12 max-w-2xl mx-auto">
 				Here are all of the ways that I can help YOU.
 			</p>
 
@@ -136,7 +127,7 @@ const services: Service[] = [
 			</div>
 
 			<div class="text-center pt-12 sm:pt-24">
-				<p class="text-base font-medium mb-4 text-white/50">Ready to discuss your project?</p>
+				<p class="text-base mb-4 text-white/60">Ready to discuss your project?</p>
 				<ContactButton />
 			</div>
 		</div>

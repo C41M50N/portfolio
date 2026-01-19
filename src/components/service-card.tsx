@@ -17,11 +17,11 @@ export default function ServiceCard({ service }: { service: Service }) {
 
       <div className="flex flex-col flex-grow pl-6 sm:pl-8 pr-8 sm:pr-8 pt-6 pb-4">
         <div className="flex-grow">
-          <h3 className="mb-1 text-2xl text-white font-semibold">
+          <h3 className="mb-1 text-xl text-white font-bold">
             {service.title}
           </h3>
 
-          <p className="text-sm text-white/50 pr-2">
+          <p className="text-sm text-white/60 pr-2">
             {service.description}
           </p>
 
@@ -38,7 +38,7 @@ export default function ServiceCard({ service }: { service: Service }) {
         </div>
       </div>
 
-      <div className="pl-8 pr-7 py-4 flex items-center justify-end text-white text-[16px] sm:text-base opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+      <div className="pl-8 pr-7 py-4 flex items-center justify-end text-white text-base opacity-0 group-hover:opacity-100 transition-opacity duration-500">
         <div className="px-0.5 pb-1 flex flex-row items-center border-b border-zinc-500">
           <span className="mr-1 text-white/90">Book a call</span>
           <ArrowRight strokeWidth={1.0} size={20} className="group-hover:translate-x-1 duration-300 ease-in" />
