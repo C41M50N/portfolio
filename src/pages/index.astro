@@ -13,31 +13,43 @@ const featuredProjects = (await getCollection("projects", (project) => project.d
 	const services: Service[] = [
 		{
 			title: "MVP Development",
-			description: "Turn your idea into a working product you can put in front of users",
+			description: "Turn your idea into a working product so you can get real user feedback fast",
 			image: "/service-thumbnails/mvp-2.jpg",
 			details: [
 				"Turn raw ideas into a usable v1 fast",
 				"Clarify scope and nail the core user flow",
 				"Build a clean UI that's easy to iterate on",
-				"Ship feedback-ready and scale-capable"
+				"Launch quickly with a foundation that scales"
 			],
 			calLink: "https://cal.com/cbuffington/mvp-development"
 		},
+		// {
+		// 	title: "Engineering Consultation",
+		// 	description: "Help your team ship faster and work happier",
+		// 	image: "/service-thumbnails/consulting-2.jpg",
+		// 	details: [
+		// 		"Remove dev friction with better tooling and docs",
+		// 		"Simplify architecture without losing flexibility",
+		// 		"Automate repeat work to speed releases",
+		// 		"Tune performance before it becomes costly"
+		// 	],
+		// 	calLink: "https://cal.com/cbuffington/engineering-consultation"
+		// },
 		{
-			title: "Engineering Consultation",
-			description: "Help your team ship faster and work happier",
+			title: "AI Product Integrations",
+			description: "Leverage AI to enhance your product, delight your users, and increase your bottom line",
 			image: "/service-thumbnails/consulting-2.jpg",
 			details: [
-				"Remove dev friction with better tooling and docs",
-				"Simplify architecture without losing flexibility",
-				"Automate repeat work to speed releases",
-				"Tune performance before it becomes costly"
+				"Identify high-value AI use cases in your product",
+				"Rapidly prototype AI features that solve real user pain",
+				"Design UX that makes AI feel helpful, not magical",
+				"Connect AI to your data securely and cleanly"
 			],
 			calLink: "https://cal.com/cbuffington/engineering-consultation"
 		},
 		{
 			title: "Full-Time Engineering",
-			description: "What I bring to your team:",
+			description: "Recruit a problem obsessed, easy to work with engineer who drives product forward, not just tickets",
 			image: "/service-thumbnails/fulltime-2.jpg",
 			details: [
 				"Own features end-to-end with product context",
@@ -59,13 +71,13 @@ const featuredProjects = (await getCollection("projects", (project) => project.d
 				<h1 class="text-2xl lg:text-[40px] lg:leading-10 font-merriweather font-bold bg-clip-text">Charles Buffington II</h1>
 				<h2 class="text-white/80 text-sm lg:text-xl">Full Stack Software Engineer</h2>
 			</div>
-			<p class="hidden sm:block text-base text-white/60 text-center lg:text-start text-sm lg:text-base">
-				Full-stack engineer focused on customer-driven iteration and developer productivity, building high-impact web products at startup speed without sacrificing quality.
+			<p class="hidden sm:block text-white/60 text-center lg:text-start text-sm lg:text-base">
+				Product-oriented engineer focused on customer-driven iteration and developer productivity, building high-impact web products at startup speed without sacrificing quality.
 				Currently living in <a href="https://maps.app.goo.gl/HGJqpsgaUhTTWXMT6" target="_blank" class="underline hover:text-white/90">Michigan, USA</a>.
 				Open to relocation 👀
 			</p>
-			<p class="block sm:hidden px-0.5 text-base text-white/60 text-center lg:text-start text-sm lg:text-base">
-				Full-stack engineer focused on customer-driven iteration and developer productivity, building high-impact web products at startup speed without sacrificing quality.
+			<p class="block sm:hidden px-0.5 text-white/60 text-center lg:text-start text-sm lg:text-base">
+				Product-oriented engineer focused on customer-driven iteration and developer productivity, building high-impact web products at startup speed without sacrificing quality.
 				Currently living in <a href="https://maps.app.goo.gl/HGJqpsgaUhTTWXMT6" target="_blank" class="underline hover:text-white/90">Michigan, USA</a>.
 			</p>
 			<!-- TODO: Tech Stack -->
@@ -97,8 +109,8 @@ const featuredProjects = (await getCollection("projects", (project) => project.d
 	<!-- FEATURED PROJECTS -->
 	<section id="projects" class="pt-24 pb-32 flex flex-col items-center justify-center">
 		<div class="flex flex-col gap-3 px-4 text-center sm:px-1 sm:pt-10">
-			<h1 class="text-2xl md:text-3xl lg:text-4xl font-bold bg-clip-text">What I've Built 🛠️</h1>
-			<span class="text-white/60 text-base italic">"The best way to learn is to build sh*t."<span class="not-italic"> &boxh; Theo Browne</span></span>
+			<h1 class="text-neutral-100 text-3xl font-bold bg-clip-text">My Projects</h1>
+			<span class="text-white/60 text-base italic">Just a few of the things I've built over the years</span>
 		</div>
 
 		<div class="min-h-52 w-full max-w-7xl grid gap-8 md:grid-cols-2 pt-12 pb-6 px-3 sm:px-8">
@@ -113,11 +125,11 @@ const featuredProjects = (await getCollection("projects", (project) => project.d
 	</section>
 
 	<!-- MY SERVICES -->
-	<section id="services" class="pt-0 pb-0 sm:pt-24 sm:pb-24 flex flex-col items-center justify-center">
+	<section id="services" class="pt-0 pb-0 sm:pt-24 sm:pb-20 flex flex-col items-center justify-center">
 		<div class="container mx-auto px-4">
-			<h2 class="text-2xl md:text-3xl lg:text-4xl font-bold text-center mb-3 text-white">My Services 🦾</h2>
-			<p class="text-center text-white/60 text-base mb-12 max-w-2xl mx-auto">
-				Here are all of the ways that I can help YOU.
+			<h2 class="text-neutral-100 text-3xl font-bold text-center mb-3">My Services</h2>
+			<p class="text-center text-white/60 text-base italic mb-12 max-w-2xl mx-auto">
+				Here are all of the ways that I can help YOU
 			</p>
 
 			<div class="max-w-7xl md:max-w-full grid grid-cols-1 lg:grid-cols-3 gap-x-6 gap-8 px-1 sm:px-4">
@@ -128,7 +140,7 @@ const featuredProjects = (await getCollection("projects", (project) => project.d
 
 			<div class="text-center pt-12 sm:pt-24">
 				<p class="text-base mb-4 text-white/60">Ready to discuss your project?</p>
-				<ContactButton />
+				<ContactButton label="Let's Chat" />
 			</div>
 		</div>
 	</section>

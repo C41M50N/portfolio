@@ -1,8 +1,8 @@
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, MessageCircle } from "lucide-react";
 import { Button, type ButtonProps } from "@/components/ui/button";
 import { GitHubSVG } from "@/components/svgs";
 import { EMAIL, GITHUB, LINKEDIN, TWITTER } from "@/lib/data";
-import { IconMailFilled } from '@tabler/icons-react';
+import { IconMailFilled, IconMessageCircleFilled } from '@tabler/icons-react';
 import { cn } from "@/lib/utils";
 
 interface LinkedInButtonProps {
@@ -40,7 +40,7 @@ interface MailButtonProps {
 export function MailButton({ className }: MailButtonProps) {
   return (
     <a href={`mailto:${EMAIL}`}>
-      <Button variant="outline" size="icon" className={`${className || ""} p-0 border-none opacity-70 hover:opacity-90 transition-opacity`}>
+      <Button variant="outline" size="icon" className={`${className || ""} p-0 border-none text-neutral-300 opacity-70 hover:opacity-85 transition-opacity`}>
         <IconMailFilled size={28} />
       </Button>
     </a>
@@ -64,13 +64,14 @@ export function TwitterButton({ className }: TwitterButtonProps) {
 interface AnimatedLinkButtonProps {
   label: string;
   href: string;
+  underline?: boolean;
 }
 
-export function AnimatedLinkButton({ label, href }: AnimatedLinkButtonProps) {
+export function AnimatedLinkButton({ label, href, underline }: AnimatedLinkButtonProps) {
   return (
     <a href={href} className="group/test">
-      <Button variant="outline" className="border-none bg-[#1C1C1C] group-hover/test:bg-[#222222] text-white/75 group-hover/test:text-white">
-        <span className="group-hover/test:underline group-hover/test:underline-offset-1">{label}</span>
+      <Button variant="outline" className="border-none bg-[#1C1C1C] group-hover/test:bg-[#222222] text-white/75 group-hover/test:text-white/90">
+        <span className={cn(underline && "group-hover/test:underline group-hover/test:underline-offset-1")}>{label}</span>
         <div className="mx-0.5" />
         <div className="group-hover/test:translate-x-1 duration-200 ease-in">
           <ArrowRight strokeWidth={1.0} size={24} />
@@ -112,7 +113,11 @@ export function GitHubProjectButton({ href, buttonClassName = "" }: GitHubProjec
   )
 }
 
-export function ContactButton() {
+type ContactButtonProps = {
+  label?: string;
+};
+
+export function ContactButton({ label }: ContactButtonProps) {
   return (
     <a href={`mailto:${EMAIL}`}>
       <Button className="h-12 px-8 text-base group relative overflow-hidden transition-all duration-300 transform hover:scale-[1.03] font-medium tracking-wide bg-zinc-800 hover:bg-zinc-700 text-white border border-zinc-600/50 hover:border-zinc-500/70 shadow-md hover:shadow-lg backdrop-blur-sm">
@@ -120,11 +125,11 @@ export function ContactButton() {
         <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent transform -skew-x-12 translate-x-[-200%] group-hover:translate-x-[200%] transition-transform duration-1000 ease-out pointer-events-none z-10"></div>
       
         {/* Content container */}
-        <div className="relative flex items-center gap-2.5 z-20">
+        <div className="relative flex items-center gap-3 z-20">
           {/* Simple mail icon */}
-          <IconMailFilled className="w-4 h-4 group-hover:scale-105 transition-transform duration-200" />
+          <IconMessageCircleFilled className="w-4 h-4 group-hover:scale-105 transition-transform duration-200" />
           
-          <span className="font-medium">Contact Me</span>
+          <span className="font-medium">{label || "Contact Me"}</span>
           
           {/* Subtle arrow */}
           {/* <ArrowRight className="w-4 h-4 group-hover:translate-x-0.5 transition-transform duration-200" /> */}
