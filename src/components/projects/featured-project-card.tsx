@@ -11,7 +11,7 @@ type Props = {
 export default function FeaturedProjectCard({ project }: Props) {
   return (
     <div
-      className="group relative bg-[#161616] hover:bg-[#242424] border border-zinc-900 hover:border-zinc-800 rounded-lg shadow-xl hover:cursor-pointer transition-colors duration-300"
+      className="group relative bg-[#161616] hover:bg-[#1F1F1F] border border-zinc-900 hover:border-zinc-800 rounded-lg shadow-xl hover:cursor-pointer transition-colors duration-300"
     >
       <a href={`/project/${project.id}`} className="absolute inset-0 z-20">
         <span className="sr-only">View project: {project.data.title}</span>
