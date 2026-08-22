@@ -2,11 +2,11 @@ FROM node:22-alpine
 
 WORKDIR /app
 
-# Copy package files
-COPY package.json pnpm-lock.yaml ./
+# Copy package files and pnpm settings
+COPY package.json pnpm-lock.yaml pnpm-workspace.yaml ./
 
-# Install pnpm and dependencies
-RUN npm install -g pnpm
+# Install the package manager version declared by the project and its dependencies
+RUN npm install -g pnpm@11.22.0
 RUN pnpm install --frozen-lockfile
 
 # Copy source code

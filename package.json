@@ -2,6 +2,9 @@
   "name": "portfolio",
   "type": "module",
   "version": "0.0.1",
+  "engines": {
+    "node": ">=22.13.0"
+  },
   "scripts": {
     "dev": "astro dev",
     "start": "astro dev",
@@ -39,5 +42,5 @@
     "@tailwindcss/typography": "^0.5.20",
     "autoprefixer": "^10.4.21"
   },
-  "packageManager": "pnpm@10.34.4"
+  "packageManager": "pnpm@11.22.0"
 }
