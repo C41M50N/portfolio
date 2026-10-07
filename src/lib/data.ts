@@ -12,6 +12,10 @@ export type TechData = {
 }
 
 export const TechCatalog: Record<string, TechData> = {
+  "tanstack": {
+    label: "TanStack Start",
+    img: "tanstack.svg",
+  },
   "nextjs": {
     label: "Next.js",
     img: "nextjs.svg",

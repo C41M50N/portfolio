@@ -1,0 +1,27 @@
+{
+  "id": "everysub",
+  "title": "EverySub",
+  "description": "Subscription tracking with spending insights, smart import, and renewal reminders.",
+  "thumbnailImage": "https://zdrufoltmvtik50w.public.blob.vercel-storage.com/portfolio-assets/project-assets/everysub/everysub-thumbnail.png",
+  "live": "https://everysub.app",
+  "github": "https://github.com/C41M50N/SubTrack",
+  "featured": true,
+  "priority": 9,
+  "techstack": [
+    "react",
+    "typescript",
+    "postgres",
+    "tailwind",
+    "tanstack"
+  ],
+  "documents": [
+    {
+      "title": "Overview",
+      "path": "/src/content/project-documents/everysub/README.md"
+    },
+    {
+      "title": "System Design",
+      "path": "/src/content/project-documents/everysub/system-design.md"
+    }
+  ]
+}
