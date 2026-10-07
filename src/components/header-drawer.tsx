@@ -16,7 +16,7 @@ export function HeaderDrawer({ navItems }: HeaderDrawerProps) {
   return (
     <Drawer>
       <DrawerTrigger asChild>
-        <Button variant="outline" size="icon" aria-label="menu button" className="h-9 w-9">
+        <Button variant="outline" size="icon" aria-label="Open menu" className="h-9 w-9">
           <Menu strokeWidth={1.5} />
         </Button>
       </DrawerTrigger>
@@ -25,11 +25,11 @@ export function HeaderDrawer({ navItems }: HeaderDrawerProps) {
         <DrawerFooter className="pt-10 pb-32">
           {navItems.map((item) => (
             <DrawerClose key={item.title} asChild>
-              <a href={item.href} aria-label={`Go to ${item.title} page`}>
-                <Button variant="outline" className="w-full text-lg uppercase opacity-70 hover:opacity-100 p-4">
+              <Button asChild variant="outline" className="w-full text-lg uppercase opacity-70 hover:opacity-100 p-4">
+                <a href={item.href} aria-label={`Go to ${item.title} page`}>
                   {item.title}
-                </Button>
-              </a>
+                </a>
+              </Button>
             </DrawerClose>
           ))}
         </DrawerFooter>
