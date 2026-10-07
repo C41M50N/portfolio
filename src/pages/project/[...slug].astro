@@ -44,6 +44,7 @@ for (const documentRef of entry.data.documents.filter((doc) => !doc.hidden)) {
         <img
           class="rounded-sm"
           src={entry.data.thumbnailImage ?? DEFAULT_PROJECT_THUMBNAIL}
+          alt={`${entry.data.title} screenshot`}
         />
       </div>
 

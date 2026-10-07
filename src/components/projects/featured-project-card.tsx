@@ -18,7 +18,7 @@ export default function FeaturedProjectCard({ project }: Props) {
       </a>
 
       <div className="relative h-40 sm:h-56 w-full rounded-t-lg overflow-hidden">
-        <img src={project.data.thumbnailImage ?? DEFAULT_PROJECT_THUMBNAIL} className="transition-all duration-300 filter grayscale group-hover:filter-none" />
+        <img src={project.data.thumbnailImage ?? DEFAULT_PROJECT_THUMBNAIL} alt="" className="transition-all duration-300 filter grayscale group-hover:filter-none" />
       </div>
 
       <div className="pl-8 pr-12 pt-4 sm:pt-6 pb-4">
