@@ -14,17 +14,17 @@ export function ProjectCard({ project }: Props) {
         <span className="sr-only">View project: {project.data.title}</span>
       </a>
 
-      <div className="hidden sm:block relative w-52 rounded-l-lg overflow-hidden">
-        <object data={project.data.thumbnailImage} type="image/jpg" className="w-52 object-cover h-full transition-all duration-300 filter grayscale group-hover:filter-none">
+      <div className="hidden sm:block relative w-52 shrink-0 rounded-l-lg overflow-hidden">
+        <object data={project.data.thumbnailImage} className="w-52 object-cover h-full transition-all duration-300 filter grayscale group-hover:filter-none">
           <img
             alt={`project "${project.data.title}" thumbnail`}
             src={DEFAULT_PROJECT_THUMBNAIL}
-            className="h-full transition-all duration-300 filter grayscale group-hover:filter-none"
+            className="w-full h-full object-cover transition-all duration-300 filter grayscale group-hover:filter-none"
           />
         </object>
       </div>
 
-      <div className="pl-4 sm:pl-1 pt-5 pb-3 flex flex-col gap-0">
+      <div className="min-w-0 flex-1 pl-4 sm:pl-1 pr-4 pt-5 pb-3 flex flex-col gap-0">
         <h3 className="text-xl font-semibold">
           {project.data.title}
         </h3>
@@ -32,7 +32,7 @@ export function ProjectCard({ project }: Props) {
           {project.data.description}
         </span>
         <div className="pt-2 flex flex-row flex-wrap gap-x-2 gap-y-1">
-          {project.data.techstack.slice(0,4).map((tech) => (
+          {project.data.techstack.slice(0,3).map((tech) => (
             <TechBadge key={tech} data={TechCatalog[tech]} />
           ))}
         </div>
