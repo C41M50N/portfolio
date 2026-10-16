@@ -10,7 +10,7 @@
   "documents": [
     {
       "title": "README",
-      "path": "/src/content/project-documents/redis-server-lite/README.md"
+      "entry": "redis-server-lite/readme"
     }
   ]
 }

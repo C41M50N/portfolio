@@ -16,15 +16,15 @@
   "documents": [
     {
       "title": "README",
-      "path": "/src/content/project-documents/jumpdrive/README.md"
+      "entry": "jumpdrive/readme"
     },
     {
       "title": "Product Design",
-      "path": "/src/content/project-documents/jumpdrive/product-design.md"
+      "entry": "jumpdrive/product-design"
     },
     {
       "title": "System Design",
-      "path": "/src/content/project-documents/jumpdrive/system-design.md"
+      "entry": "jumpdrive/system-design"
     }
   ]
 }

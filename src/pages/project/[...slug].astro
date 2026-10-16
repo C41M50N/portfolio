@@ -1,7 +1,6 @@
 ---
-import type { GetStaticPaths, MarkdownInstance } from "astro";
-import { getCollection } from "astro:content";
-import { experimental_AstroContainer as AstroContainer } from 'astro/container';
+import type { GetStaticPaths, InferGetStaticPropsType } from "astro";
+import { getCollection, getEntry } from "astro:content";
 import { TechCatalog } from "@/lib/data";
 import Layout from "@/layouts/Layout.astro";
 import { TechBadge } from "@/components/projects/tech-badge";
@@ -17,24 +16,23 @@ export const getStaticPaths = ( async () => {
   }))
 }) satisfies GetStaticPaths;
 
-const allProjectDocuments = Object.values(import.meta.glob('../../content/project-documents/**/*.md', { eager: true })) as MarkdownInstance<Record<string, any>>[];
+type Props = InferGetStaticPropsType<typeof getStaticPaths>;
 
 const { entry } = Astro.props;
 
-const documents: Array<{ title: string; content: string }> = [];
-const container = await AstroContainer.create();
-for (const documentRef of entry.data.documents.filter((doc) => !doc.hidden)) {
-  const document = allProjectDocuments.find(
-    (d) => d.file.endsWith(documentRef.path)
-  );
-  if (!document) return;
+const documents = await Promise.all(
+  entry.data.documents.filter((doc) => !doc.hidden).map(async (documentRef) => {
+    const document = await getEntry(documentRef.entry);
+    if (!document?.rendered) {
+      throw new Error(`Missing rendered project document: ${documentRef.entry.id}`);
+    }
 
-  const documentHTML = await container.renderToString(document.Content);
-  documents.push({
-    title: documentRef.title,
-    content: documentHTML,
+    return {
+      title: documentRef.title,
+      content: document.rendered.html,
+    };
   })
-}
+);
 ---
 
 <Layout title={`${entry.data.title} | Buffington's Projects`}>

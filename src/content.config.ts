@@ -1,4 +1,4 @@
-import { defineCollection } from "astro:content";
+import { defineCollection, reference } from "astro:content";
 import { z } from "astro/zod";
 import { glob } from 'astro/loaders';
 
@@ -17,10 +17,14 @@ const projects = defineCollection({
     priority: z.number().int().default(0),
     documents: z.array(z.object({
       title: z.string(),
-      path: z.string(),
+      entry: reference("projectDocuments"),
       hidden: z.boolean().default(false),
     })),
   })
 })
 
-export const collections = { projects };
+const projectDocuments = defineCollection({
+  loader: glob({ pattern: "**/*.md", base: "./src/content/project-documents" }),
+});
+
+export const collections = { projects, projectDocuments };
