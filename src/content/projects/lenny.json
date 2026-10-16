@@ -15,7 +15,7 @@
   "documents": [
     {
       "title": "README",
-      "path": "/src/content/project-documents/lenny/README.md"
+      "entry": "lenny/readme"
     }
   ]
 }

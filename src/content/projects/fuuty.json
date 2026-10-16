@@ -13,11 +13,11 @@
   "documents": [
     {
       "title": "README",
-      "path": "/src/content/project-documents/fuuty/README.md"
+      "entry": "fuuty/readme"
     },
     {
       "title": "System Design",
-      "path": "/src/content/project-documents/fuuty/system-design.md"
+      "entry": "fuuty/system-design"
     }
   ]
 }
