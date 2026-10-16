@@ -9,6 +9,8 @@ import {
   service,
 } from "railway/iac";
 
+const gb = (value: number): number => value * 1_000_000_000;
+
 export default defineRailway((ctx) => {
   if (ctx.projectId !== "dea6b3d3-ea9a-49c5-82c7-0739830e2667") {
     throw new Error("Link this repository to the Portfolio Railway project before planning or applying.");
@@ -40,7 +42,7 @@ export default defineRailway((ctx) => {
     source: github("C41M50N/portfolio", { branch: "master", checkSuites: false }),
     replicas: { "us-east4-eqdc4a": 1 },
     deploy: {
-      limitOverride: { containers: { cpu: 1, memoryBytes: 1000000000 } },
+      limitOverride: { containers: { cpu: 1, memoryBytes: gb(1) } },
       restartPolicyMaxRetries: 3,
     },
     domains: [
